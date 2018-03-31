@@ -1,6 +1,7 @@
 /obj/mecha/combat/gygax
 	desc = "A lightweight, security exosuit. Popular among private and corporate security."
 	name = "Gygax"
+	icon = 'icons/mecha/mechabig.dmi'
 	icon_state = "gygax"
 	initial_icon = "gygax"
 	step_in = 3
