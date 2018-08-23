@@ -807,6 +807,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/central)
 "bF" = (
@@ -2386,6 +2387,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/central)
 "eK" = (
@@ -2529,6 +2531,7 @@
 	icon_state = "warning";
 	dir = 8
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/central)
 "eX" = (
@@ -2668,34 +2671,15 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/turret_protected/ai_cyborg_station)
 "fq" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "Synthetic Station";
-	req_access = list(16)
-	},
 /obj/structure/cable/green{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 8;
+	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/turretid/stun{
-	control_area = "\improper Cyborg Station";
-	name = "Cyborg Station turret control";
-	pixel_x = -32;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/turret_protected/ai_cyborg_station)
+/turf/simulated/floor/plating,
+/area/maintenance/seconddeck/central)
 "fr" = (
 /obj/structure/sign/warning/lethal_turrets,
-/turf/simulated/wall/r_wall/prepainted,
-/area/turret_protected/ai_cyborg_station)
-"fs" = (
-/obj/structure/sign/warning/secure_area{
-	icon_state = "securearea";
-	dir = 1
-	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/turret_protected/ai_cyborg_station)
 "ft" = (
@@ -2709,6 +2693,7 @@
 	icon_state = "warningcorner";
 	dir = 4
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/central)
 "fu" = (
@@ -2724,6 +2709,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/central)
 "fv" = (
@@ -2748,10 +2734,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/aftstarboard)
-"fx" = (
-/obj/machinery/power/rad_collector,
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/central)
 "fy" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3032,44 +3014,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/maintenance/seconddeck/forestarboard)
-"ge" = (
-/obj/machinery/recharge_station,
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_cyborg_station)
-"gf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
-/obj/effect/landmark/start{
-	name = "Cyborg"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/turret_protected/ai_cyborg_station)
 "gg" = (
-/obj/item/device/radio/intercom/locked/ai_private{
-	dir = 8;
-	pixel_x = 22
-	},
-/obj/item/modular_computer/console/preset/research{
-	icon_state = "console";
-	dir = 8
-	},
-/turf/simulated/floor/bluegrid,
+/turf/simulated/wall/prepainted,
 /area/turret_protected/ai_cyborg_station)
 "gh" = (
-/obj/effect/decal/cleanable/cobweb,
-/obj/machinery/space_heater,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/maintenance/seconddeck/central)
 "gi" = (
 /obj/machinery/door/firedoor/border_only,
@@ -3131,7 +3080,7 @@
 	dir = 8
 	},
 /obj/random/junk,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/maintenance/seconddeck/hallway)
 "gn" = (
 /obj/structure/table/rack,
@@ -3451,35 +3400,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/forestarboard)
-"gW" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
-/obj/effect/landmark/start{
-	name = "Cyborg"
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/turret_protected/ai_cyborg_station)
-"gX" = (
-/obj/machinery/cryopod/robot{
-	dir = 4
-	},
-/obj/machinery/camera/all/command{
-	c_tag = "AI Core - Synthetic Station";
-	dir = 8
-	},
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_cyborg_station)
 "gY" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -3946,48 +3866,8 @@
 /obj/random/obstruction,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/forestarboard)
-"hN" = (
-/obj/structure/table/steel_reinforced,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/machinery/power/apc/super/critical{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_cyborg_station)
 "hO" = (
-/obj/machinery/ai_slipper,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark/monotile,
-/area/turret_protected/ai_cyborg_station)
-"hP" = (
-/obj/structure/table/steel_reinforced,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/item/weapon/aicard,
-/obj/machinery/computer/cryopod/robot{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/turret_protected/ai_cyborg_station)
 "hQ" = (
 /obj/machinery/light/small{
@@ -4151,26 +4031,6 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/engineering/engineering_monitoring)
-"ic" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/table/rack,
-/obj/random/junk,
-/obj/random/maintenance/solgov,
-/obj/item/weapon/storage/box/matches,
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/central)
 "id" = (
 /obj/item/roller,
 /obj/item/roller,
@@ -4327,30 +4187,10 @@
 "ix" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/forestarboard)
-"iy" = (
-/obj/item/device/radio/intercom/locked/ai_private{
-	dir = 4;
-	pixel_x = -22
-	},
-/obj/structure/table/steel_reinforced,
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_cyborg_station)
-"iz" = (
-/obj/machinery/hologram/holopad,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/monotile,
-/area/turret_protected/ai_cyborg_station)
-"iA" = (
-/obj/structure/table/steel_reinforced,
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_cyborg_station)
 "iB" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -4577,8 +4417,7 @@
 	req_access = list(29);
 	secured_wires = 1
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/steel_ridged,
 /area/engineering/drone_fabrication)
 "iR" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -4801,42 +4640,8 @@
 "jp" = (
 /turf/unsimulated/mask,
 /area/maintenance/seconddeck/forestarboard)
-"jq" = (
-/obj/structure/closet/crate,
-/obj/random/maintenance/solgov,
-/obj/random/maintenance/solgov,
-/obj/random/maintenance/solgov,
-/obj/random/maintenance/solgov,
-/obj/random/maintenance/solgov,
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/forestarboard)
-"jr" = (
-/obj/machinery/porta_turret{
-	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_cyborg_station)
 "js" = (
 /turf/simulated/floor/tiled/dark/monotile,
-/area/turret_protected/ai_cyborg_station)
-"jt" = (
-/obj/machinery/porta_turret{
-	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -24
-	},
-/turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_cyborg_station)
 "ju" = (
 /obj/structure/cable/green{
@@ -4851,10 +4656,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/janitor)
-"jv" = (
-/obj/machinery/portable_atmospherics/powered/pump/filled,
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/central)
 "jw" = (
 /turf/simulated/wall/prepainted,
 /area/engineering/engineering_monitoring)
@@ -5064,10 +4865,6 @@
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/teleporter/seconddeck)
-"jU" = (
-/obj/machinery/vending/assist,
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/forestarboard)
 "jV" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/crew_quarters/safe_room/seconddeck)
@@ -6560,17 +6357,7 @@
 /turf/simulated/wall/prepainted,
 /area/maintenance/seconddeck/foreport)
 "nd" = (
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
-/obj/structure/catwalk,
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/maintenance/seconddeck/hallway)
 "ne" = (
 /obj/structure/cable{
@@ -6590,15 +6377,23 @@
 /area/maintenance/seconddeck/central)
 "nf" = (
 /obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/hallway)
-"ng" = (
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
-/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/hallway)
+"ng" = (
+/obj/item/device/radio/intercom/locked/ai_private{
+	pixel_y = 21
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/turret_protected/ai_cyborg_station)
 "nh" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6612,25 +6407,22 @@
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/hallway)
 "nj" = (
-/obj/random/obstruction,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/porta_turret{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = -24
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/hallway)
+/turf/simulated/floor/tiled/dark/monotile,
+/area/turret_protected/ai_cyborg_station)
 "nk" = (
-/obj/random/junk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/hallway)
+/obj/structure/table/steel_reinforced,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_cyborg_station)
 "nl" = (
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/plating,
@@ -6987,6 +6779,9 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"of" = (
+/turf/simulated/floor/tiled/dark/monotile,
+/area/space)
 "oh" = (
 /obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/corner/yellow{
@@ -7239,6 +7034,8 @@
 	req_one_access = list(14,23)
 	},
 /obj/machinery/door/firedoor/border_only,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/maintenance/seconddeck/forestarboard)
 "pd" = (
@@ -7256,15 +7053,20 @@
 "pe" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/hallway)
 "pf" = (
-/obj/machinery/light/small{
-	dir = 1
+/obj/machinery/door/airlock/highsecurity{
+	name = "Synthetic Station";
+	req_access = list(16)
 	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/hallway)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/turret_protected/ai_cyborg_station)
 "pg" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7343,7 +7145,6 @@
 	},
 /obj/machinery/door/firedoor/border_only,
 /obj/machinery/door/airlock/maintenance,
-/obj/structure/catwalk,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/maintenance/seconddeck/forestarboard)
 "po" = (
@@ -7695,6 +7496,10 @@
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/engineering/engine_monitoring)
+"pQ" = (
+/obj/structure/sign/warning/lethal_turrets,
+/turf/simulated/wall/r_wall/prepainted,
+/area/space)
 "pR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -8521,6 +8326,10 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/aftport)
+"rq" = (
+/obj/machinery/vending/assist,
+/turf/simulated/floor/plating,
+/area/space)
 "rs" = (
 /obj/structure/railing/mapped,
 /obj/structure/sign/deck/second{
@@ -8894,6 +8703,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"st" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/table/rack,
+/obj/random/junk,
+/obj/random/maintenance/solgov,
+/obj/item/weapon/storage/box/matches,
+/turf/simulated/floor/plating,
+/area/maintenance/seconddeck/central)
 "sv" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -8999,6 +8824,9 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/crew_quarters/safe_room/seconddeck)
+"sM" = (
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/seconddeck/hallway)
 "sN" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
@@ -9461,6 +9289,14 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/engine_eva)
+"tU" = (
+/obj/item/device/radio/intercom/locked/ai_private{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/structure/table/steel_reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "tV" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
@@ -10717,6 +10553,13 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/atmos)
+"wS" = (
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/space)
 "wU" = (
 /turf/simulated/wall/r_wall/hull,
 /area/maintenance/seconddeck/aftport)
@@ -12112,6 +11955,19 @@
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/maintenance/seconddeck/foreport)
+"AI" = (
+/turf/simulated/floor/plating,
+/area/space)
+"AK" = (
+/obj/random/obstruction,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "AN" = (
 /turf/simulated/wall/prepainted,
 /area/storage/cargo)
@@ -13883,6 +13739,10 @@
 /obj/effect/floor_decal/solarpanel,
 /turf/simulated/floor/airless,
 /area/solar/port)
+"EJ" = (
+/obj/machinery/ai_status_display,
+/turf/simulated/wall/r_wall/prepainted,
+/area/space)
 "EK" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -14448,6 +14308,10 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/atmos)
+"Gw" = (
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/reinforced/airless,
+/area/maintenance/seconddeck/forestarboard)
 "GE" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -14487,6 +14351,12 @@
 "GW" = (
 /turf/simulated/wall/r_wall/hull,
 /area/storage/tech)
+"Ha" = (
+/obj/machinery/computer/cryopod/robot{
+	pixel_x = 32
+	},
+/turf/simulated/wall/r_wall/prepainted,
+/area/turret_protected/ai_cyborg_station)
 "Hb" = (
 /obj/effect/shuttle_landmark/petrov/out,
 /turf/space,
@@ -14673,7 +14543,6 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/border_only,
-/obj/structure/catwalk,
 /obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/maintenance/seconddeck/foreport)
@@ -14724,20 +14593,35 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/hallway)
+"HG" = (
+/obj/machinery/porta_turret{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "HP" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
 	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/bluespace)
+"HQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "HR" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 10
@@ -14917,6 +14801,9 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/aftport)
+"Io" = (
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_cyborg_station)
 "Ir" = (
 /turf/simulated/wall/r_wall/hull,
 /area/maintenance/auxsolarport)
@@ -14953,6 +14840,26 @@
 "IE" = (
 /turf/simulated/wall/r_wall/hull,
 /area/maintenance/seconddeck/aftstarboard)
+"IF" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Synthetic Station";
+	req_access = list(16)
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/turretid/stun{
+	control_area = "\improper Cyborg Station";
+	name = "Cyborg Station turret control";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/space)
 "IK" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -15126,6 +15033,9 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/engineering/foyer)
+"Js" = (
+/turf/simulated/wall/prepainted,
+/area/maintenance/seconddeck/hallway)
 "Jt" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -15151,6 +15061,9 @@
 /area/engineering/fuelbay)
 "JX" = (
 /turf/simulated/wall/r_wall/hull,
+/area/maintenance/seconddeck/forestarboard)
+"JZ" = (
+/turf/simulated/floor/reinforced/airless,
 /area/maintenance/seconddeck/forestarboard)
 "Kb" = (
 /obj/effect/shuttle_landmark/ert/deck2,
@@ -15231,11 +15144,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engineering_monitoring)
-"Kl" = (
-/obj/structure/table/rack,
-/obj/random/maintenance/solgov,
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/central)
 "Km" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -15274,6 +15182,14 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/atmos)
+"Kz" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/plating,
+/area/space)
+"KC" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/plating,
+/area/space)
 "KI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	icon_state = "intact";
@@ -15286,6 +15202,16 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/central)
+"KZ" = (
+/obj/machinery/cryopod/robot{
+	dir = 4
+	},
+/obj/machinery/camera/all/command{
+	c_tag = "AI Core - Synthetic Station";
+	dir = 8
+	},
+/turf/simulated/floor/bluegrid,
+/area/space)
 "Lb" = (
 /obj/effect/shuttle_landmark/ninja/deck2,
 /turf/space,
@@ -15375,10 +15301,6 @@
 /obj/item/weapon/circuitboard/message_monitor,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/storage/tech)
-"Ll" = (
-/obj/random/obstruction,
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/central)
 "Lm" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -15419,6 +15341,26 @@
 "Ls" = (
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"Lw" = (
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Lz" = (
+/obj/random/maintenance/solgov,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "LF" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	icon_state = "intact";
@@ -15435,15 +15377,47 @@
 	},
 /area/space)
 "LL" = (
-/obj/machinery/light/small,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/item/modular_computer/console/preset/research{
+	icon_state = "console";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_cyborg_station)
+"LP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/landmark{
+	name = "JoinLateCyborg"
+	},
+/obj/effect/landmark{
+	name = "JoinLateCyborg"
+	},
+/obj/effect/landmark/start{
+	name = "Cyborg"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/space)
+"LQ" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/power/apc/super/critical{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/hallway)
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "LY" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
@@ -15459,6 +15433,12 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/atmos)
+"LZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/turret_protected/ai_cyborg_station)
 "Mb" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -15490,10 +15470,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
-"Me" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/central)
 "Mf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -15645,6 +15621,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/foreport)
+"MJ" = (
+/obj/machinery/recharge_station,
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/turf/simulated/floor/bluegrid,
+/area/turret_protected/ai_cyborg_station)
 "MK" = (
 /turf/simulated/floor/tiled/dark/monotile,
 /area/engineering/hardstorage)
@@ -15824,6 +15807,16 @@
 	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/engineering/atmos)
+"Nr" = (
+/obj/item/device/radio/intercom/locked/ai_private{
+	dir = 4;
+	pixel_x = -22
+	},
+/obj/machinery/cryopod/robot{
+	dir = 4
+	},
+/turf/simulated/floor/bluegrid,
+/area/turret_protected/ai_cyborg_station)
 "Nw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8
@@ -15888,14 +15881,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/storage/tech)
 "NS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/hallway)
+/obj/structure/table/steel_reinforced,
+/obj/item/weapon/aicard,
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_cyborg_station)
 "NU" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/catwalk,
@@ -15903,6 +15892,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/hallway)
+"NZ" = (
+/obj/machinery/hologram/holopad,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/space)
 "Ob" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	icon_state = "intact";
@@ -15961,9 +15955,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/forestarboard)
 "Of" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/disposalpipe/sortjunction{
 	dir = 4;
 	name = "Drone Fabrication";
@@ -15975,10 +15966,14 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/forestarboard)
 "Og" = (
@@ -16045,7 +16040,7 @@
 	},
 /obj/random/maintenance/solgov,
 /obj/random/maintenance/solgov,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/maintenance/seconddeck/hallway)
 "Om" = (
 /obj/structure/closet/secure_closet/crew,
@@ -16085,6 +16080,21 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/maintenance/bluespace)
+"Or" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/space)
+"Ou" = (
+/obj/machinery/recharge_station,
+/obj/machinery/computer/cryopod/robot{
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/bluegrid,
+/area/turret_protected/ai_cyborg_station)
 "Oy" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -16092,6 +16102,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
+"OC" = (
+/obj/machinery/space_heater,
+/turf/simulated/floor/plating,
+/area/maintenance/seconddeck/forestarboard)
 "OL" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -16109,6 +16123,12 @@
 "OM" = (
 /turf/simulated/wall/r_wall/hull,
 /area/maintenance/incinerator)
+"OQ" = (
+/obj/effect/landmark/start{
+	name = "Cyborg"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_cyborg_station)
 "OW" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -16320,6 +16340,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/vacant/chapel)
+"Ps" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/item/weapon/aicard,
+/obj/machinery/computer/cryopod/robot{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Px" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/seconddeck/hallway)
 "Py" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
@@ -16360,6 +16398,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/engineering/atmos)
+"PR" = (
+/obj/machinery/power/rad_collector,
+/turf/simulated/floor/plating,
+/area/space)
 "PW" = (
 /obj/effect/floor_decal/techfloor{
 	icon_state = "techfloor_edges";
@@ -16534,6 +16576,32 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/vacant/chapel)
+"Qw" = (
+/obj/structure/sign/warning/secure_area{
+	icon_state = "securearea";
+	dir = 1
+	},
+/turf/simulated/wall/r_wall/prepainted,
+/area/space)
+"QW" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/landmark{
+	name = "JoinLateCyborg"
+	},
+/obj/effect/landmark{
+	name = "JoinLateCyborg"
+	},
+/obj/effect/landmark/start{
+	name = "Cyborg"
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/space)
 "QX" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -16718,6 +16786,18 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/engineering/fuelbay)
+"Rv" = (
+/obj/structure/sign/warning/secure_area{
+	icon_state = "securearea";
+	dir = 1
+	},
+/turf/simulated/wall/r_wall/prepainted,
+/area/crew_quarters/safe_room/seconddeck)
+"RI" = (
+/obj/structure/table/rack,
+/obj/random/maintenance/solgov,
+/turf/simulated/floor/plating,
+/area/space)
 "RM" = (
 /obj/effect/floor_decal/techfloor{
 	icon_state = "techfloor_edges";
@@ -16879,6 +16959,20 @@
 "Ss" = (
 /turf/simulated/floor/tiled/steel_ridged,
 /area/maintenance/seconddeck/forestarboard)
+"Su" = (
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Sv" = (
+/obj/machinery/shield_diffuser,
+/turf/simulated/floor/reinforced/airless,
+/area/space)
 "Sx" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -16910,6 +17004,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/forestarboard)
+"SX" = (
+/obj/structure/table/steel_reinforced,
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Tb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/effect/floor_decal/corner_techfloor_grid,
@@ -17058,12 +17161,35 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room)
+"Tr" = (
+/obj/machinery/porta_turret{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/monotile,
+/area/turret_protected/ai_cyborg_station)
 "Tx" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/atmos)
+"TD" = (
+/obj/machinery/ai_slipper,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/space)
 "TF" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -17083,6 +17209,10 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/forestarboard)
+"TP" = (
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/space)
 "TQ" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
@@ -17094,6 +17224,13 @@
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/engineering/locker_room)
+"TU" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Synthetic Station";
+	req_access = list(16)
+	},
+/turf/simulated/floor/tiled/dark/monotile,
+/area/turret_protected/ai_cyborg_station)
 "TY" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -17304,6 +17441,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/hallway)
+"UE" = (
+/obj/structure/sign/warning/lethal_turrets,
+/turf/simulated/wall/prepainted,
+/area/maintenance/seconddeck/forestarboard)
+"UF" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/bluegrid,
+/area/space)
+"UT" = (
+/obj/random/obstruction,
+/turf/simulated/floor/plating,
+/area/space)
 "Va" = (
 /obj/structure/sign/warning/compressed_gas{
 	icon_state = "hikpa";
@@ -17464,6 +17613,14 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /turf/simulated/floor/greengrid/airless,
 /area/engineering/engine_room)
+"Vq" = (
+/turf/simulated/wall/prepainted,
+/area/space)
+"Vt" = (
+/obj/machinery/power/rad_collector,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/plating,
+/area/maintenance/seconddeck/forestarboard)
 "VC" = (
 /obj/structure/sign/warning/hot_exhaust{
 	icon_state = "fire";
@@ -17474,6 +17631,11 @@
 "VE" = (
 /turf/simulated/wall/r_wall/prepainted,
 /area/maintenance/bluespace)
+"VI" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/machinery/space_heater,
+/turf/simulated/floor/plating,
+/area/space)
 "VL" = (
 /obj/structure/sign/warning/radioactive{
 	icon_state = "radiation";
@@ -17581,16 +17743,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/seconddeck/forestarboard)
-"Wi" = (
-/obj/random/maintenance/solgov,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/seconddeck/hallway)
 "Wj" = (
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	id_tag = "prototype_controller";
@@ -17676,6 +17828,34 @@
 	},
 /turf/simulated/wall/r_wall/prepainted,
 /area/engineering/atmos)
+"WH" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/obj/machinery/power/apc/high{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/seconddeck/central)
 "WI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	icon_state = "intact";
@@ -17705,6 +17885,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
+"WR" = (
+/turf/simulated/wall/r_wall/prepainted,
+/area/space)
 "Xb" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	icon_state = "intact";
@@ -17834,6 +18017,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room)
+"Xp" = (
+/obj/machinery/power/rad_collector,
+/turf/simulated/floor/plating,
+/area/maintenance/seconddeck/forestarboard)
 "Xr" = (
 /obj/effect/floor_decal/techfloor{
 	icon_state = "techfloor_edges";
@@ -17853,6 +18040,21 @@
 	},
 /turf/simulated/wall/prepainted,
 /area/maintenance/seconddeck/forestarboard)
+"XT" = (
+/obj/machinery/porta_turret{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_x = 0;
+	pixel_y = -24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "XZ" = (
 /obj/structure/sign/warning/high_voltage{
 	icon_state = "shock";
@@ -17886,6 +18088,9 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/atmos)
+"Yd" = (
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/seconddeck/central)
 "Ye" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -17984,7 +18189,7 @@
 	dir = 8
 	},
 /obj/random/maintenance/solgov,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/maintenance/seconddeck/hallway)
 "Ym" = (
 /obj/machinery/alarm{
@@ -18023,6 +18228,31 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/crew_quarters/safe_room/seconddeck)
+"Yq" = (
+/obj/item/device/radio/intercom/locked/ai_private{
+	dir = 8;
+	pixel_x = 22
+	},
+/obj/item/modular_computer/console/preset/research{
+	icon_state = "console";
+	dir = 8
+	},
+/turf/simulated/floor/bluegrid,
+/area/space)
+"Ys" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/catwalk,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/seconddeck/central)
 "Yu" = (
 /obj/structure/catwalk,
 /obj/machinery/alarm{
@@ -18033,6 +18263,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
+"Yw" = (
+/obj/machinery/power/apc/super/critical{
+	dir = 1;
+	is_critical = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_cyborg_station)
 "YG" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
@@ -18343,6 +18582,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bluespace)
+"ZH" = (
+/obj/structure/closet/crate,
+/obj/random/maintenance/solgov,
+/obj/random/maintenance/solgov,
+/obj/random/maintenance/solgov,
+/obj/random/maintenance/solgov,
+/obj/random/maintenance/solgov,
+/turf/simulated/floor/plating,
+/area/space)
 "ZI" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/effect/floor_decal/corner_techfloor_grid{
@@ -28942,8 +29190,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+Or
+Lz
 aa
 aa
 aa
@@ -29144,8 +29392,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+TP
+AK
 aa
 aa
 aa
@@ -29346,8 +29594,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+TP
+HQ
 aa
 aa
 aa
@@ -29548,8 +29796,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+TP
+Su
 aa
 aa
 aa
@@ -29750,8 +29998,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+TP
+Lw
 aa
 aa
 aa
@@ -29952,8 +30200,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+wS
+HQ
 aa
 aa
 aa
@@ -30154,8 +30402,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+TP
+Su
 aa
 aa
 aa
@@ -30352,12 +30600,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+rq
+Vq
+UT
+Vq
+TP
+HQ
 aa
 aa
 aa
@@ -30554,12 +30802,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+Vq
+Vq
+ZH
+Vq
+TP
+HQ
 aa
 aa
 JX
@@ -30756,12 +31004,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+UT
+AI
+Kz
+Vq
+Or
+HQ
 aa
 JX
 JX
@@ -30955,15 +31203,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+EJ
+WR
+WR
+WR
+WR
+EJ
+WR
+TP
+HQ
 aa
 aK
 aK
@@ -31157,15 +31405,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+WR
+UF
+UF
+LQ
+tU
+HG
+WR
+AI
+HQ
 aa
 aK
 aK
@@ -31359,13 +31607,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IF
+LP
+QW
+TD
+NZ
+of
+WR
 aa
 aa
 aK
@@ -31561,13 +31809,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+pQ
+Yq
+KZ
+Ps
+SX
+XT
+WR
 aa
 aK
 aK
@@ -31763,13 +32011,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Qw
+WR
+WR
+WR
+WR
+EJ
+WR
 aa
 aK
 aK
@@ -31965,13 +32213,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Kz
+Vq
+VI
+AI
+Vq
+Vq
+Vq
 aa
 aK
 aK
@@ -32167,13 +32415,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+KC
+Vq
+RI
+AI
+PR
+PR
+Vq
 aK
 aK
 aK
@@ -32369,15 +32617,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Vq
+Vq
+Vq
+AI
+AI
+AI
+Vq
+Sv
+Ls
 Ib
 cd
 cI
@@ -32573,13 +32821,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-JX
-JX
+Vq
+UT
+AI
+Vq
+Vq
+Gw
+JZ
 JX
 ce
 ce
@@ -34005,10 +34253,10 @@ bI
 gT
 Nf
 bd
-bd
+bH
 bI
 nf
-NS
+ni
 nl
 nc
 nU
@@ -34207,11 +34455,11 @@ Ue
 We
 Pf
 bd
-bd
-bI
-nf
-NS
-jV
+it
+UE
+Px
+ni
+Rv
 jV
 nV
 pj
@@ -34407,12 +34655,12 @@ eC
 fn
 fn
 gV
-jU
 bI
 hM
-bI
+fp
+fp
 pf
-Wi
+fo
 jV
 jV
 jV
@@ -34606,14 +34854,14 @@ bf
 bf
 dT
 eD
-bd
-bd
-bd
+bI
+hM
 bI
 bI
-jq
-bI
-nf
+bd
+fp
+Nr
+LZ
 nj
 jV
 jV
@@ -34808,14 +35056,14 @@ cO
 bf
 dU
 eE
-bd
-bd
-bd
-hM
-bd
-bH
 bI
-nf
+be
+OC
+bd
+bd
+fp
+MJ
+OQ
 NS
 jV
 jV
@@ -35010,14 +35258,14 @@ cP
 bf
 es
 eT
-fo
-fp
-fp
-fp
-fp
-fo
-fp
-nf
+bI
+bI
+bI
+Vt
+Xp
+Ha
+Ou
+OQ
 nk
 jV
 jV
@@ -35210,16 +35458,16 @@ KT
 KT
 cQ
 bf
-dW
-eG
+WH
+Ys
+st
+bK
 fp
-ge
-ge
-hN
-iy
-jr
 fp
-nf
+fp
+fp
+fp
+Yw
 LL
 jV
 jV
@@ -35415,14 +35663,14 @@ bf
 dX
 eH
 fq
-gf
-gW
+bK
+fp
 hO
-iz
-js
+hO
+hO
 fp
 ng
-NS
+Tr
 jV
 jV
 mm
@@ -35616,15 +35864,15 @@ cR
 bf
 dW
 eG
-fr
+bK
 gg
-gX
-hP
-iA
-jt
 fp
-nf
-nk
+hO
+hO
+hO
+fr
+TU
+fo
 jV
 jV
 jV
@@ -35818,16 +36066,16 @@ KT
 KT
 dW
 eG
-fs
-fp
-fp
-fp
-fp
-fo
-fp
-nf
-NS
-jV
+bK
+gg
+js
+Io
+Io
+Io
+js
+sM
+sM
+Rv
 VE
 VE
 VE
@@ -36020,15 +36268,15 @@ bK
 dw
 dW
 eG
-Me
-bf
-gh
 bK
 bf
-bf
-bf
-nf
-NS
+gh
+Yd
+Yd
+Yd
+gh
+sM
+sM
 Ol
 VE
 GP
@@ -36222,15 +36470,15 @@ cS
 bK
 dW
 eG
-jv
-bf
-Kl
 bK
-fx
-fx
 bf
-pf
-NS
+gh
+Yd
+Yd
+Yd
+gh
+sM
+sM
 Yl
 VE
 ZG
@@ -36426,13 +36674,13 @@ dZ
 eI
 bf
 bf
-bf
-bK
-bK
-bK
-bf
-nf
-NS
+gh
+Yd
+Yd
+Yd
+gh
+sM
+sM
 gm
 VE
 YO
@@ -36627,15 +36875,15 @@ cU
 ea
 eJ
 ft
-ic
 bf
-Ll
-bK
+bf
+bf
+bf
 bf
 bf
 nd
-NS
-ni
+Js
+Js
 VE
 VE
 pr
