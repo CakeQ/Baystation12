@@ -11,7 +11,8 @@ Single Use Emergency Pouches
 	max_w_class = ITEM_SIZE_SMALL
 	icon_state = "pack0"
 	var/injury_type = "generic"
-	var/opened = FALSE
+	opened = FALSE
+	open_sound = 'sound/effects/rip1.ogg'
 	var/global/image/cross_overlay
 
 	var/instructions = {"

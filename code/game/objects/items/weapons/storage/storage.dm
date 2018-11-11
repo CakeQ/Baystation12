@@ -27,6 +27,9 @@
 	var/list/startswith
 	var/datum/storage_ui/storage_ui = /datum/storage_ui/default
 
+	var/opened = null
+	var/open_sound = null
+
 /obj/item/weapon/storage/Destroy()
 	QDEL_NULL(storage_ui)
 	. = ..()
@@ -79,6 +82,9 @@
 		storage_ui.hide_from(user)
 
 /obj/item/weapon/storage/proc/open(mob/user as mob)
+	if(!opened)
+		playsound(src.loc, src.open_sound, 50, 0, -5)
+		opened = 1
 	if (src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
 	if (isrobot(user) && user.hud_used)
@@ -89,6 +95,7 @@
 	prepare_ui()
 	storage_ui.on_open(user)
 	storage_ui.show_to(user)
+	update_icon()
 
 /obj/item/weapon/storage/proc/prepare_ui()
 	storage_ui.prepare_ui()
