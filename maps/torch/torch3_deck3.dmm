@@ -12558,7 +12558,7 @@
 "Bw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/uniform_vendor{
-	icon_state = "robotics";
+	icon_state = "uniform";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/monotile,
@@ -18009,7 +18009,7 @@
 	},
 /obj/machinery/vending/coffee{
 	icon_state = "coffee";
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/thirddeck/aft)

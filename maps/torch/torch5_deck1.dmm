@@ -10286,7 +10286,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/uniform_vendor{
-	icon_state = "robotics";
+	icon_state = "uniform";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white/monotile,
@@ -27158,13 +27158,16 @@
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
-/obj/machinery/lapvend,
 /obj/effect/floor_decal/corner/research{
 	tag = "icon-corner_white (SOUTHWEST)";
 	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/lapvend{
+	icon_state = "laptop";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "puw" = (

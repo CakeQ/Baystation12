@@ -5047,10 +5047,10 @@
 /area/storage/primary)
 "rc" = (
 /obj/machinery/lapvend{
-	icon_state = "robotics";
+	icon_state = "laptop";
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/monotile,
 /area/storage/primary)
 "rd" = (
 /turf/simulated/wall/r_wall/prepainted,
