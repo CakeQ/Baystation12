@@ -70,20 +70,22 @@
 			to_chat(user, SPAN_WARNING("\The [target]'s soul has departed."))
 			return TRUE
 			
-		var/question =  sanitize(input("Say something?","Mindread"))
-		if(do_after(user, 200))
+		var/question =  input("Say something?","Mindread") as null|text
+		if(do_after(user, 20))
+			var/started_mindread = world.time
 			user.visible_message(SPAN_NOTICE("<i>\The [user] places their hand over \the [target]'s temple...</i>"))
 			if(question)
-				to_chat(user, SPAN_NOTICE("You hear echoes in your mind, <i>[question]</i>"))
+				to_chat(target, SPAN_NOTICE("You hear echoes in your mind, <i>[question]</i>"))
 			var/question_header = (question) ? question : "What thoughts fly through your head?"
-			var/answer =  sanitize(target.input(question_header,"Mindread"))
-			if(!do_after(user, 1000, target, 0, 1))
+			var/answer =  input(target, question_header,"Mindread") as null|text
+			if(world.time > started_mindread + 10 SECONDS)
 				if(answer)
 					to_chat(user, SPAN_NOTICE("You hear the depths of \the [target]'s mind, <i>[answer]</i>"))
+					return TRUE
 				else
 					to_chat(user, SPAN_NOTICE("You hear nothing.."))					
-				return TRUE
-
+			if(answer)
+				to_chat(target, SPAN_NOTICE("Your thoughts return to you. It seems you were too slow."))
 		return TRUE
 
 /decl/psionic_power/coercion/agony
