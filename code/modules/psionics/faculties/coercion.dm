@@ -59,7 +59,8 @@
 	cooldown =        80
 	use_melee =       TRUE
 	min_rank =        PSI_RANK_OPERANT
-	use_description = "Target the head and click on a living subject to attempt to read their mind."
+	associated_intent = I_HELP
+	use_description = "Target the head and click on a living subject while on help intent to attempt to read their mind."
 
 /decl/psionic_power/coercion/mindread/invoke(var/mob/living/user, var/mob/living/target)
 	if(!isliving(target) || !istype(target) || user.zone_sel.selecting != BP_HEAD)
