@@ -79,11 +79,10 @@
 			var/question_header = (question) ? question : "What thoughts fly through your head?"
 			var/answer =  input(target, question_header,"Mindread") as null|text
 			if(world.time > started_mindread + 10 SECONDS)
-				if(answer)
-					to_chat(user, SPAN_NOTICE("You hear the depths of \the [target]'s mind, <i>[answer]</i>"))
-					return TRUE
-				else
-					to_chat(user, SPAN_NOTICE("You hear nothing.."))					
+				to_chat(user, SPAN_NOTICE("You hear nothing.."))
+			else if(answer)
+				to_chat(user, SPAN_NOTICE("You hear the depths of \the [target]'s mind, <i>[answer]</i>"))
+				return TRUE									
 			if(answer)
 				to_chat(target, SPAN_NOTICE("Your thoughts return to you. It seems you were too slow."))
 		return TRUE
