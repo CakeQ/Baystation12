@@ -127,3 +127,9 @@ var/list/restricted_camera_networks = list(NETWORK_ERT, NETWORK_MERCENARY, NETWO
 #define MODE_CLIENT			2	//The one who initiated the docking, and who can initiate the undocking. The server cannot initiate undocking, and is the one responsible for deciding to accept a docking request and signals when docking and undocking is complete. (Think server == station, client == shuttle)
 
 #define MESSAGE_RESEND_TIME 5	//how long (in seconds) do we wait before resending a message
+
+//Cooking machinery
+#define STATE_COOKING_OFF		0
+#define STATE_COOKING_LOW		1
+#define STATE_COOKING_MEDIUM	2
+#define STATE_COOKING_HIGH		4

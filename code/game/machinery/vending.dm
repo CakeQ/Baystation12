@@ -1051,6 +1051,9 @@
 	icon_vend = "dinnerware-vend"
 	icon_deny = "dinnerware-deny"
 	products = list(
+	/obj/item/weapon/reagent_containers/food/cooking/pot = 2,
+	/obj/item/weapon/reagent_containers/food/cooking/fryingpan = 2,
+	/obj/item/weapon/reagent_containers/food/cooking/fryingpan/saucepan = 2,
 	/obj/item/weapon/reagent_containers/glass/beaker/bowl =2,
 	/obj/item/weapon/tray = 8,
 	/obj/item/weapon/material/kitchen/utensil/fork = 6,
