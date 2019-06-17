@@ -4,8 +4,8 @@
 	density = 1
 	anchored = 1
 	var/cooking_state = STATE_COOKING_OFF //off, on, and mode (later)
-	var/max_temperature =	200 CELCIUS
-	var/min_temperature =	40  CELCIUS
+	var/max_temperature =	T20C + 200
+	var/min_temperature =	T20C + 40
 	var/heating_power =		10 // K
 	var/fuel_consumption = 	0.00005
 	var/cooking_sound

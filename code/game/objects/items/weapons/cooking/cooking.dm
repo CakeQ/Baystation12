@@ -39,11 +39,7 @@ GLOBAL_LIST_EMPTY(recipes_by_cooker_type)
 
 		var/list/children = list()
 		for (var/T in subtypesof(/datum/recipe/cooked))
-			var/datum/recipe/cooked/R = new T
-			// Only want grandchildren.
-			if (R.parent_type == /datum/recipe/cooked)
-				qdel(R)
-				continue
+			var/datum/recipe/R = new T
 			children += R
 
 		for(var/thing in children)
@@ -61,18 +57,18 @@ GLOBAL_LIST_EMPTY(recipes_by_cooker_type)
 /obj/item/weapon/reagent_containers/food/cooking/attackby(var/obj/item/I as obj, var/mob/user as mob)
 	if(is_type_in_list(I,acceptable_items))
 		if (contents.len >= item_capacity)
-			to_chat(user, "<span class='warning'>\The [src] is full of ingredients.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is full of ingredients."))
 			return
 		if (!user.unEquip(I, src))
 			return
-		user.visible_message("<span class='notice'>\The [user] has added \the [I] to \the [src].</span>", "<span class='notice'>You add \the [I] to \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] has added \the [I] to \the [src]."), SPAN_NOTICE("You add \the [I] to \the [src]."))
 		update_recipe()
 	else if(istype(I,/obj/item/weapon/reagent_containers/glass) || istype(I,/obj/item/weapon/reagent_containers/food/drinks) || istype(I,/obj/item/weapon/reagent_containers/food/condiment) || istype(I,/obj/item/weapon/reagent_containers/food/cooking))
 		if (!I.reagents)
 			return
 		for (var/datum/reagent/R in I.reagents.reagent_list)
 			if (!(R.type in acceptable_reagents))
-				to_chat(user, "<span class='warning'>\The [I] contains components unsuitable for cookery.</span>")
+				to_chat(user, SPAN_WARNING("\The [I] contains components unsuitable for cookery."))
 				return
 		update_recipe()
 	..()
@@ -89,7 +85,7 @@ GLOBAL_LIST_EMPTY(recipes_by_cooker_type)
 			I.forceMove(over_object)
 		if(!istype(over_object, /obj/structure/hygiene/sink))
 			reagents.splash(over_object, reagents.total_volume)
-			visible_message("<span class='notice'>\The [usr] tips the contents of \the [src] out.</span>")
+			visible_message(SPAN_NOTICE("\The [usr] tips the contents of \the [src] out."))
 		update_icon()
 
 /obj/item/weapon/reagent_containers/food/cooking/Process()
@@ -99,11 +95,11 @@ GLOBAL_LIST_EMPTY(recipes_by_cooker_type)
 			if(!sound_token)
 				sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, progress_sound, 25, range = 7, falloff = 3, prefer_mute = TRUE)
 			cooking_progress += 1
-			if(cooking_progress >= current_recipe.cooking_effort)
+			if(cooking_progress >= current_recipe.time)
 				if(current_recipe == select_recipe(available_recipes,src))
 					current_recipe.make_food(src)
-					visible_message("<span class='notice'>\The [src] looks ready.</span>")
-			if(cooking_progress >= current_recipe.cooking_effort * 2)
+					visible_message(SPAN_NOTICE("\The [src] looks ready."))
+			if(cooking_progress >= current_recipe.time * 2)
 				fail_cooking()
 		else
 			if(sound_token)
@@ -130,7 +126,7 @@ GLOBAL_LIST_EMPTY(recipes_by_cooker_type)
 			overlays += I
 			break
 	if(reagents)
-		var/reagent_type = get_master_reagent_type()
+		var/datum/reagent/reagent_type = reagents.get_master_reagent_type()
 		if(current_recipe && temperature >= current_recipe.cooking_temp)
 			var/image/I = image(icon = icon, icon_state = "[icon_state]_fill_cooking")
 			I.color = reagent_type.color
@@ -139,7 +135,7 @@ GLOBAL_LIST_EMPTY(recipes_by_cooker_type)
 			var/image/I = image(icon = icon, icon_state = "[icon_state]_fill")
 			I.color = reagent_type.color
 			overlays += I
-	if(current_recipe && cooking_progress >= current_recipe.cooking_effort)
+	if(current_recipe && cooking_progress >= current_recipe.time)
 		overlays += "[icon_state]_steam"
 	if(!istype(loc, /obj))
 		loc.update_icon()
@@ -161,7 +157,7 @@ GLOBAL_LIST_EMPTY(recipes_by_cooker_type)
 	var/obj/item/weapon/reagent_containers/food/snacks/badrecipe/burned = new(src)
 	burned.reagents.add_reagent(/datum/reagent/carbon, amount)
 	burned.reagents.add_reagent(/datum/reagent/toxin, amount/10)
-	visible_message("<span class='danger'>\The [src] vomits a gout of rancid smoke!</span>")
+	visible_message(SPAN_DANGER("\The [src] vomits a gout of rancid smoke!"))
 	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad()
 	smoke.attach(src)
 	smoke.set_up(10, 0, usr.loc)

@@ -29,7 +29,7 @@
 	create_reagents(100)
 	if (!available_recipes)
 		available_recipes = new
-		for (var/type in (typesof(/datum/recipe)-/datum/recipe))
+		for (var/type in subtypesof(/datum/recipe/cooked))
 			available_recipes+= new type
 		acceptable_items = new
 		acceptable_reagents = new

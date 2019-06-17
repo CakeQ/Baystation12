@@ -51,7 +51,8 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define PASS_FLAG_GRILLE 0x4
 
 // Flags for cooking methods.
-#define COOKING_FLAG_FRY 	1
-#define COOKING_FLAG_BOIL 	2
-#define COOKING_FLAG_BAKE 	4
-#define COOKING_FLAG_GRILL 	8
+#define COOKING_FLAG_ANY    1
+#define COOKING_FLAG_FRY 	2
+#define COOKING_FLAG_BOIL 	4
+#define COOKING_FLAG_BAKE 	8
+#define COOKING_FLAG_GRILL 	16
