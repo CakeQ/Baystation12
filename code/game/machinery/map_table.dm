@@ -27,10 +27,15 @@
 	material = MATERIAL_GLASS
 	reinforced = MATERIAL_STEEL
 	var/obj/overmap/visitable/ship/linked
+	var/weakref/sensor_ref
 	var/map_offset_x = 0
 	var/map_offset_y = 0
 	var/table_size_x = 1
 	var/table_size_y = 1
+
+/obj/structure/table/map_table/Initialize()
+	. = ..()
+	update_connections(TRUE)
 
 /obj/structure/table/map_table/update_connections(propagate = 0)
 	. = ..()
@@ -40,6 +45,8 @@
 	table_size_y = 1
 	for (var/direction in GLOB.cardinal)
 		var/found_all = FALSE
+		var/offset_value_x = 0
+		var/offset_value_y = 0
 		var/turf/ref_turf = src.loc
 		while (!found_all)
 			var/turf/other_turf = get_step(ref_turf, direction)
@@ -49,14 +56,16 @@
 					success = TRUE
 					break
 			if (success)
-				map_offset_x = map_offset_x + (other_turf.x - ref_turf.x)
-				map_offset_y = map_offset_y + (other_turf.y - ref_turf.y)
+				offset_value_x = ref_turf.x - other_turf.x
+				offset_value_y = ref_turf.y - other_turf.y
 				if (direction == EAST || direction == WEST)
 					table_size_x += 1
 				else
 					table_size_y += 1
 				ref_turf = other_turf
 				continue
+			map_offset_x += offset_value_x
+			map_offset_y += offset_value_y
 			found_all = TRUE
 
 /obj/structure/table/map_table/proc/find_sensors()
