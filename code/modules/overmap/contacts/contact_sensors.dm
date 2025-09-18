@@ -66,15 +66,19 @@
 	for (var/obj/machinery/computer/ship/sensors/console in linked_consoles)
 		console.alert_contact_lost(contact_name)
 
+/obj/machinery/shipsensors/proc/get_sensor_range()
+	var/sensor_range = 0
+	if (use_power)
+		sensor_range = round(range, 1)
+	return sensor_range
+
 /obj/machinery/shipsensors/Process()
 	..()
 	if (!linked)
 		return
 
 	// Update our 'sensor range' (ie. overmap lighting)
-	var/sensor_range = 0
-	if (use_power)
-		sensor_range = round(range, 1)
+	var/sensor_range = get_sensor_range()
 
 	// Update our own marker icon regardless of power or sensor connections.
 	var/datum/overmap_contact/self_record = contact_datums[linked]

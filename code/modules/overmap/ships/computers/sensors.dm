@@ -323,12 +323,16 @@
 	. = ..()
 	if (use_power && !powered())
 		toggle()
-
+	if (linked)
+		for(var/obj/machinery/map_table/T in linked.map_tables)
+			T.update_visuals()
 
 /obj/machinery/shipsensors/proc/set_range(nrange)
 	range = nrange
 	change_power_consumption(1500 * (range**2), POWER_USE_IDLE) //Exponential increase, also affects speed of overheating
-
+	if (linked)
+		for(var/obj/machinery/map_table/T in linked.map_tables)
+			T.update_visuals()
 
 /obj/machinery/shipsensors/emp_act(severity)
 	if (use_power)

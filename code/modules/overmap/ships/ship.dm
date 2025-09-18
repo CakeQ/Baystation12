@@ -25,6 +25,7 @@
 	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
 
 	var/list/engines = list()
+	var/list/map_tables = list()
 	var/engines_state = 0 //global on/off toggle for all engines
 	var/thrust_limit = 1  //global thrust limit for all engines, 0..1
 	var/skill_needed = SKILL_TRAINED  //piloting skill needed to steer it without going in random dir
@@ -178,6 +179,8 @@
 	..()
 	for(var/obj/machinery/computer/ship/S in SSmachines.machinery)
 		S.attempt_hook_up(src)
+	for(var/obj/machinery/map_table/M in SSmachines.machinery)
+		M.attempt_hook_up(src)
 	for(var/datum/ship_engine/E in ship_engines)
 		if(check_ownership(E.holder))
 			engines |= E

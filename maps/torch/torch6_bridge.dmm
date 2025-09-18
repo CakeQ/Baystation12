@@ -6577,7 +6577,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/bridge/fore)
 "qh" = (
-/obj/structure/table/map_table,
+/obj/machinery/map_table,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bridge)
 "qi" = (
@@ -12503,7 +12503,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/storage)
 "Kt" = (
-/obj/structure/table/map_table,
+/obj/machinery/map_table,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "Kv" = (
