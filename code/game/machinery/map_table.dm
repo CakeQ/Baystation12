@@ -4,6 +4,7 @@ var/global/list/map_tables = list()
 	name = "map table screen"
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
 	mouse_opacity = 0
+	vis_flags = VIS_INHERIT_ID
 	layer = ABOVE_LIGHTING_LAYER
 	icon_state = "nothing"
 	var/obj/machinery/map_table/map_table
@@ -26,6 +27,7 @@ var/global/list/map_tables = list()
 	name = "map table visuals"
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
 	mouse_opacity = 0
+	vis_flags = VIS_INHERIT_ID
 	layer = ABOVE_OBJ_LAYER
 	icon_state = "nothing"
 	var/obj/machinery/map_table/map_table
