@@ -58,14 +58,17 @@ var/global/list/map_tables = list()
 	var/table_reach_y = ceil(sensor_size / map_table.table_size_y)
 
 	var/matrix/M = matrix()
-	M.Scale(1 / table_reach_x, 1 / table_reach_y)
+	var/scale_x = 1 / table_reach_x
+	var/scale_y = 1 / table_reach_y
+	M.Scale(scale_x, scale_y)
 	transform = M
-	pixel_x = -32 * ((table_reach_x / 2) - 1)
-	pixel_y = -32 * ((table_reach_y / 2) - 1)
 
 	var/turf/ref_turf = get_offset_target_turf(map_table.linked.loc, table_reach_x * map_table.map_offset_x, table_reach_y * map_table.map_offset_y)
-	for(var/turf/T in range(ceil(max(table_reach_x, table_reach_y) / 2), ref_turf))
+	for(var/turf/T in range(floor(max(table_reach_x, table_reach_y) / 2), ref_turf))
 		add_vis_contents(T)
+
+	pixel_x = (-32 * floor(table_reach_x / 2))
+	pixel_y = (-32 * floor(table_reach_y / 2))
 
 /obj/machinery/map_table
 	name = "sensors display table"

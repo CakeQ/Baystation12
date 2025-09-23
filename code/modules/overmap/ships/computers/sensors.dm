@@ -328,9 +328,10 @@
 			T.update_visuals()
 
 /obj/machinery/shipsensors/proc/set_range(nrange)
+	var/prange = range
 	range = nrange
 	change_power_consumption(1500 * (range**2), POWER_USE_IDLE) //Exponential increase, also affects speed of overheating
-	if (linked)
+	if (linked && prange != nrange)
 		for(var/obj/machinery/map_table/T in linked.map_tables)
 			T.update_visuals()
 
