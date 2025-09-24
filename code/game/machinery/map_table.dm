@@ -5,6 +5,7 @@ var/global/list/map_tables = list()
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
 	mouse_opacity = 0
 	vis_flags = VIS_INHERIT_ID
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	layer = ABOVE_LIGHTING_LAYER
 	icon_state = "nothing"
 	var/obj/machinery/map_table/map_table
@@ -21,14 +22,13 @@ var/global/list/map_tables = list()
 	for(var/i = 1 to 4)
 		I.Blend(icon('icons/obj/machines/map_table.dmi', "maptable_screen_[map_table.connections[i]]", SHIFTL(1, i - 1)), ICON_OVERLAY)
 	filters += filter("type" = "alpha", "icon" = I, "x" = 0, "y" = 0)
-	// filters += filter("type" = "alpha", "icon" = icon('icons/obj/machines/map_table.dmi', "maptable_screen"), "x" = 0, "y" = 0)
 
 /obj/effect/map_table_visuals
 	name = "map table visuals"
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
 	mouse_opacity = 0
-	vis_flags = VIS_INHERIT_ID
-	layer = ABOVE_OBJ_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	layer = ABOVE_LIGHTING_LAYER
 	icon_state = "nothing"
 	var/obj/machinery/map_table/map_table
 	anchored = TRUE
@@ -87,7 +87,9 @@ var/global/list/map_tables = list()
 	damage_hitsound = 'sound/weapons/smash.ogg'
 	var/light_power_on = 1
 	var/light_range_on = 2
+	layer = TABLE_LAYER
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
+	obj_flags = OBJ_FLAG_RECEIVE_TABLE
 
 	var/list/connections = list("0", "0", "0", "0")
 	var/obj/overmap/visitable/ship/linked
@@ -125,8 +127,8 @@ var/global/list/map_tables = list()
 	screen = new(src)
 	screen.link_table(src)
 	screen.add_vis_contents(visuals)
+	add_vis_contents(screen)
 	update_connections(!mapload)
-	update_icon()
 
 /obj/machinery/map_table/proc/attempt_hook_up(obj/overmap/visitable/ship/sector)
 	if(!istype(sector))
@@ -136,6 +138,8 @@ var/global/list/map_tables = list()
 		GLOB.moved_event.register(linked, src, .proc/on_moved)
 		LAZYADD(linked.map_tables, src)
 		find_sensors()
+		if(visuals)
+			visuals.update_visuals()
 		update_icon()
 		return 1
 
@@ -187,25 +191,22 @@ var/global/list/map_tables = list()
 			map_offset_x += offset_value_x
 			map_offset_y += offset_value_y
 			found_all = TRUE
-	if(screen)
-		screen.update_screen()
+	update_visuals()
 
 /obj/machinery/map_table/proc/update_visuals()
 	if(visuals)
 		visuals.update_visuals()
+	if(screen)
+		screen.update_screen()
 
 /obj/machinery/map_table/on_update_icon()
 	. = ..()
 	icon_state = "blank"
-	clear_vis_contents()
 	ClearOverlays()
-
 	var/image/I
 	for(var/i = 1 to 4)
 		I = image(icon, "maptable_[connections[i]]", dir = SHIFTL(1, i - 1))
 		AddOverlays(I)
-
-	add_vis_contents(screen)
 
 /obj/machinery/map_table/proc/find_sensors()
 	if (!linked)
