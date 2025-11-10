@@ -67,6 +67,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 /obj/machinery/computer/ship/proc/look(mob/user)
 	if(linked)
 		user.reset_view(linked)
+	var/mob/living/living_mob = user
+	if(living_mob)
+		living_mob.update_sight()
 	if(user.client)
 		user.client.view = world.view + extra_view
 	if(linked)
@@ -83,6 +86,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	user.reset_view(null, FALSE)
 	if(user.client)
 		user.client.view = world.view
+	var/mob/living/living_mob = user
+	if(living_mob)
+		living_mob.update_sight()
 	if(linked)
 		for(var/obj/machinery/shipsensors/sensor in linked.sensors)
 			sensor.hide_contacts(user)

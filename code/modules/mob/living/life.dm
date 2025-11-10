@@ -232,7 +232,9 @@
 /mob/living/proc/update_sight()
 	if(stat == DEAD || eyeobj)
 		update_dead_sight()
-	if (seedarkness)
+	else if(client && client.eye && istype(client.eye, /obj/overmap/visitable/ship))
+		update_overmap_sight()
+	else if (seedarkness)
 		set_sight(0)
 		set_see_in_dark(0)
 		if(stat == DEAD || eyeobj)
@@ -263,6 +265,11 @@
 	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 	set_see_in_dark(8)
 	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+
+/mob/living/proc/update_overmap_sight()
+	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+	set_see_in_dark(8)
+	set_see_invisible(SEE_INVISIBLE_NOOVERMAP)
 
 /mob/living/proc/handle_hud_icons()
 	handle_hud_icons_health()

@@ -10,14 +10,15 @@
 // Invisibility constants.
 #define INVISIBILITY_NONE        0
 #define INVISIBILITY_LIGHTING    20
+#define INVISIBILITY_OVERMAP     25
 #define INVISIBILITY_LEVEL_ONE   35
 #define INVISIBILITY_LEVEL_TWO   45
-#define INVISIBILITY_OVERMAP     50
 #define INVISIBILITY_OBSERVER    60
 #define INVISIBILITY_EYE         61
 #define INVISIBILITY_SYSTEM      99
 #define INVISIBILITY_ABSTRACT   101	// special: this can never be seen, regardless of see_invisible
 
+#define SEE_INVISIBLE_NOOVERMAP  20
 #define SEE_INVISIBLE_LIVING     25
 #define SEE_INVISIBLE_NOLIGHTING 15
 #define SEE_INVISIBLE_LEVEL_ONE  INVISIBILITY_LEVEL_ONE
