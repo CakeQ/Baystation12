@@ -49,11 +49,11 @@
 	linked = get_owning_sector_recursive(src)
 
 /obj/machinery/payload_interface/proc/on_turf_entered(atom/entered, atom/movable/enterer, atom/old_loc)
-	if (istype(enterer, /obj/structure/missile) && linked)
+	if ((istype(enterer, /obj/structure/missile) || istype(enterer, /obj/structure/ship_munition)) && linked)
 		GLOB.payload_interface_updated.raise_event(linked)
 
 /obj/machinery/payload_interface/proc/on_turf_exited(atom/entered, atom/movable/exitee, atom/new_loc)
-	if (istype(exitee, /obj/structure/missile) && linked)
+	if ((istype(exitee, /obj/structure/missile) || istype(exitee, /obj/structure/ship_munition)) && linked)
 		GLOB.payload_interface_updated.raise_event(linked)
 
 /obj/machinery/payload_interface/use_tool(obj/item/tool, mob/living/user, list/click_params)
@@ -74,17 +74,21 @@
 /obj/machinery/payload_interface/proc/arm(mob/user)
 	if (!is_powered())
 		return
-	var/obj/structure/missile/payload = get_payload()
-	if (payload && !payload.armed)
+	var/obj/structure/missile/payload = get_missile_payload()
+	if (istype(payload) && !payload.armed)
 		payload.arm(user)
 	use_power_oneoff(500)
 	update_icon()
 
+/obj/machinery/payload_interface/proc/is_armed()
+	var/obj/structure/missile/payload = get_missile_payload()
+	return istype(payload) && payload.armed
+
 /obj/machinery/payload_interface/proc/fire()
 	if (!is_powered())
 		return
-	var/obj/structure/missile/payload = get_payload()
-	if (payload && payload.armed)
+	var/obj/structure/missile/payload = get_missile_payload()
+	if (istype(payload) && payload.armed)
 		addtimer(new Callback(payload, TYPE_PROC_REF(/obj/structure/missile, fire)), 1 SECOND)
 	var/singleton/public_access/public_variable/variable = GET_SINGLETON(/singleton/public_access/public_variable/payload_interface_arming)
 	variable.write_var(src, TRUE)
@@ -98,7 +102,7 @@
 	update_icon()
 
 /obj/machinery/payload_interface/proc/can_arm()
-	if (!allow_arming || firing || !is_powered() || !get_payload())
+	if (!allow_arming || firing || !is_powered() || !get_missile_payload())
 		return FALSE
 	return TRUE
 
@@ -109,6 +113,12 @@
 	update_icon()
 
 /obj/machinery/payload_interface/proc/get_payload()
+	var/atom/payload = get_missile_payload()
+	if (!payload)
+		payload = locate(/obj/structure/ship_munition) in loc
+	return payload
+
+/obj/machinery/payload_interface/proc/get_missile_payload()
 	var/obj/structure/missile/payload = locate() in loc
 	return payload
 

@@ -384,12 +384,18 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/maintenance/thirddeck/forestarboard)
 "bt" = (
-/obj/machinery/atmospherics/binary/pump/on,
-/obj/structure/railing/mapped{
-	icon_state = "railing0-1";
-	dir = 8
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25
+	},
+/obj/floor_decal/corner/blue/three_quarters{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "bu" = (
 /turf/simulated/floor/plating,
@@ -1446,18 +1452,14 @@
 /turf/simulated/wall/prepainted,
 /area/crew_quarters/galleybackroom)
 "dz" = (
-/obj/structure/railing/mapped{
-	icon_state = "railing0-1";
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/binary/pump{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/blue{
-	dir = 5
-	},
-/obj/random/trash,
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/command/disperser)
 "dA" = (
 /obj/machinery/light{
@@ -2338,7 +2340,10 @@
 /obj/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "fB" = (
 /turf/simulated/wall/prepainted,
@@ -2988,14 +2993,18 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/engineering/hardstorage)
 "gS" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	icon_state = "railing0-1";
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22;
+	pixel_y = 4
+	},
+/obj/floor_decal/corner/blue/three_quarters{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "gT" = (
 /obj/structure/railing/mapped{
@@ -3495,6 +3504,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/service_break_room)
+"hZ" = (
+/obj/machinery/light/small/red,
+/obj/machinery/conveyor{
+	dir = 8;
+	id_tag = "bsa_main"
+	},
+/turf/simulated/floor,
+/area/command/disperser)
 "ib" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/floor_decal/industrial/outline/grey,
@@ -3738,10 +3755,14 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/mess)
 "iw" = (
-/obj/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light,
-/obj/structure/ship_munition/disperser_charge/mining,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/conveyor{
+	dir = 5;
+	id_tag = "bsa_main"
+	},
+/turf/simulated/floor,
 /area/command/disperser)
 "ix" = (
 /obj/machinery/light,
@@ -3765,7 +3786,6 @@
 /obj/wallframe_spawn/reinforced/hull,
 /obj/machinery/door/blast/regular/open{
 	name = "Observation Blast Door";
-	icon_state = "pdoor0";
 	dir = 4;
 	id_tag = "bsa-window"
 	},
@@ -4859,15 +4879,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/primary/thirddeck/aft)
 "kS" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/conveyor{
 	dir = 1;
-	level = 2
+	id_tag = "bsa_main"
 	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor,
 /area/command/disperser)
 "kT" = (
 /obj/structure/sign/directions/bridge{
@@ -6923,11 +6940,13 @@
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/primary/thirddeck/fore)
 "pR" = (
-/obj/machinery/computer/modular/preset/cardslot/command{
-	icon_state = "console";
+/obj/floor_decal/corner/blue/three_quarters{
+	dir = 8
+	},
+/obj/machinery/computer/modular/preset/munitions{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "pS" = (
 /obj/structure/sign/directions/evac{
@@ -7078,13 +7097,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/thruster/d3starboard)
 "qq" = (
-/obj/floor_decal/industrial/hatch/blue,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
-	},
-/obj/structure/ship_munition/disperser_charge/emp,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "qr" = (
 /obj/structure/bed/chair/wood{
@@ -7540,9 +7556,15 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/chapel/main)
 "rG" = (
-/obj/structure/sign/warning/nosmoking_1{
-	dir = 4;
-	pixel_x = -32
+/obj/floor_decal/industrial/hatch/yellow,
+/obj/structure/ship_munition/disperser_charge/mining,
+/obj/machinery/conveyor{
+	dir = 1;
+	id_tag = "bsa_pod_2"
+	},
+/obj/machinery/payload_interface{
+	name = "OFD Bay 2";
+	id_tag = "bsa_pod_2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/disperser)
@@ -8409,11 +8431,14 @@
 /obj/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "tz" = (
 /obj/structure/catwalk,
@@ -8985,28 +9010,15 @@
 /turf/simulated/wall/prepainted,
 /area/maintenance/thirddeck/aftstarboard)
 "vf" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
-	dir = 4;
-	id_tag = "bsa_pump"
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = -21;
-	pixel_y = -10;
-	id_tag = "bsa_sensor"
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+/obj/structure/sign/warning/airlock{
 	dir = 1;
-	pixel_y = -21;
-	id_tag = "bsa_airlock";
-	tag_exterior_door = "bsa_ex";
-	tag_interior_door = "bsa_in";
-	tag_airpump = "bsa_pump";
-	tag_chamber_sensor = "bsa_sensor"
+	pixel_y = -32
 	},
-/obj/machinery/light/small{
-	dir = 8
+/obj/machinery/conveyor{
+	dir = 6;
+	id_tag = "bsa_main"
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
+/turf/simulated/floor,
 /area/command/disperser)
 "vg" = (
 /obj/wallframe_spawn/no_grille,
@@ -10408,6 +10420,20 @@
 	},
 /turf/simulated/open,
 /area/maintenance/thirddeck/starboard)
+"zf" = (
+/obj/floor_decal/industrial/hatch/red,
+/obj/structure/ship_munition/disperser_charge/explosive,
+/obj/machinery/light/small/red,
+/obj/machinery/conveyor{
+	dir = 1;
+	id_tag = "bsa_pod_3"
+	},
+/obj/machinery/payload_interface{
+	name = "OFD Bay 3";
+	id_tag = "bsa_pod_3"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/command/disperser)
 "zg" = (
 /obj/random_multi/single_item/runtime,
 /obj/structure/cable/green{
@@ -10421,10 +10447,8 @@
 /turf/simulated/floor/tiled/monotile,
 /area/hydroponics)
 "zh" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/obj/floor_decal/industrial/loading,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/command/disperser)
 "zj" = (
 /obj/structure/disposalpipe/segment{
@@ -10554,14 +10578,9 @@
 /turf/simulated/floor/tiled/monotile,
 /area/storage/tools)
 "zF" = (
-/obj/structure/railing/mapped{
-	icon_state = "railing0-1";
-	dir = 1
-	},
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/binary/pump/on,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/command/disperser)
 "zG" = (
 /turf/simulated/wall/r_wall/hull,
@@ -10975,13 +10994,16 @@
 /turf/simulated/wall/prepainted,
 /area/maintenance/thirddeck/aftport)
 "Be" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/random/trash,
-/obj/machinery/firealarm{
-	dir = 1;
-	pixel_y = -24
+/obj/floor_decal/industrial/hatch/orange,
+/obj/structure/ship_munition/disperser_charge/fire,
+/obj/machinery/conveyor{
+	id_tag = "bsa_pod_8"
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/payload_interface{
+	name = "OFD Bay 8";
+	id_tag = "bsa_pod_8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/command/disperser)
 "Bf" = (
 /obj/structure/table/woodentable/walnut,
@@ -11933,7 +11955,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/wall/prepainted,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "DI" = (
 /obj/structure/table/standard,
@@ -11942,11 +11971,12 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/crew_quarters/safe_room/thirddeck)
 "DJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/conveyor{
+	id = null;
+	id_tag = "bsa_main"
 	},
-/obj/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor,
 /area/command/disperser)
 "DK" = (
 /obj/random/firstaid,
@@ -11979,7 +12009,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "DN" = (
 /obj/structure/table/standard,
@@ -12092,9 +12129,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/service_break_room)
 "DU" = (
-/obj/machinery/camera/network/bridge{
-	dir = 4;
-	c_tag = "Fire Control - Munitions"
+/obj/floor_decal/industrial/hatch/blue,
+/obj/structure/ship_munition/disperser_charge/emp,
+/obj/machinery/conveyor{
+	id_tag = "bsa_pod_5"
+	},
+/obj/machinery/payload_interface{
+	name = "OFD Bay 5";
+	id_tag = "bsa_pod_5"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/disperser)
@@ -12257,7 +12299,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "El" = (
 /obj/floor_decal/industrial/outline/yellow,
@@ -12789,8 +12834,14 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "FE" = (
-/obj/floor_decal/corner/blue{
-	dir = 9
+/obj/floor_decal/industrial/hatch/blue,
+/obj/structure/ship_munition/disperser_charge/emp,
+/obj/machinery/conveyor{
+	id_tag = "bsa_pod_6"
+	},
+/obj/machinery/payload_interface{
+	name = "OFD Bay 6";
+	id_tag = "bsa_pod_6"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/disperser)
@@ -13483,16 +13534,15 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/maintenance/thirddeck/aftport)
 "HB" = (
-/obj/machinery/light/small{
-	icon_state = "bulb1";
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/railing/mapped{
-	icon_state = "railing0-1";
-	dir = 1
+/obj/machinery/conveyor{
+	dir = 8;
+	id_tag = "bsa_main"
 	},
-/turf/simulated/floor/plating,
+/obj/structure/plasticflaps,
+/turf/simulated/floor,
 /area/command/disperser)
 "HD" = (
 /obj/structure/cable/green{
@@ -13529,17 +13579,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/maintenance/thirddeck/port)
 "HH" = (
-/obj/wallframe_spawn/reinforced/hull,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular/open{
-	name = "Observation Blast Door";
-	icon_state = "pdoor0";
-	dir = 4;
-	id_tag = "bsa-window"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor,
 /area/command/disperser)
 "HI" = (
 /obj/structure/sign/warning/secure_area,
@@ -13614,10 +13654,16 @@
 	dir = 5
 	},
 /obj/structure/railing/mapped,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "HR" = (
 /obj/floor_decal/industrial/warning{
@@ -13635,44 +13681,70 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/command/disperser)
 "HT" = (
-/obj/structure/disposaloutlet,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 4;
+	id_tag = "bsa_pump"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/airlock_sensor{
+	pixel_x = -21;
+	pixel_y = -10;
+	id_tag = "bsa_sensor"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 21;
+	id_tag = "bsa_airlock";
+	tag_exterior_door = "bsa_ex";
+	tag_interior_door = "bsa_in";
+	tag_airpump = "bsa_pump";
+	tag_chamber_sensor = "bsa_sensor"
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
 /area/command/disperser)
 "HU" = (
-/obj/floor_decal/industrial/hatch/yellow,
-/obj/machinery/disposal/deliveryChute{
-	dir = 4
+/obj/structure/sign/warning/airlock{
+	pixel_y = 32
 	},
-/obj/structure/disposalpipe/trunk{
-	dir = 8
+/obj/machinery/access_button{
+	pixel_x = -20;
+	pixel_y = 20;
+	frequency = 1379;
+	command = "cycle_interior";
+	master_tag = "bsa_airlock"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/command/disperser)
 "HV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/catwalk_plated/dark,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 21
+	},
 /turf/simulated/floor/plating,
 /area/command/disperser)
 "HW" = (
 /turf/simulated/wall/prepainted,
 /area/command/disperser)
 "HX" = (
-/obj/floor_decal/industrial/hatch/blue,
-/obj/structure/ship_munition/disperser_charge/emp,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "HZ" = (
-/obj/floor_decal/industrial/loading,
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "Ia" = (
 /obj/wallframe_spawn/reinforced/hull,
 /obj/machinery/door/blast/regular/open{
 	name = "Observation Blast Door";
-	icon_state = "pdoor0";
 	dir = 4;
 	id_tag = "bsa-window"
 	},
@@ -13682,15 +13754,21 @@
 /obj/floor_decal/corner/blue{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22;
-	pixel_y = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/command{
+	name = "Obstruction Field Disperser Magazine";
+	secured_wires = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark/monotile,
 /area/command/disperser)
 "Ic" = (
 /obj/machinery/light{
@@ -13707,28 +13785,41 @@
 /area/command/disperser)
 "Ie" = (
 /obj/structure/table/steel,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+/obj/floor_decal/corner/blue{
+	dir = 5
 	},
-/turf/simulated/floor/tiled/monotile,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "If" = (
-/obj/machinery/light/small{
-	icon_state = "bulb1";
-	dir = 4
+/obj/floor_decal/industrial/hatch/yellow,
+/obj/structure/ship_munition/disperser_charge/mining,
+/obj/machinery/conveyor{
+	dir = 1;
+	id_tag = "bsa_pod_1"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/machinery/camera/network/bridge{
-	dir = 8;
-	c_tag = "Fire Control - Operations"
+/obj/machinery/payload_interface{
+	name = "OFD Bay 1";
+	id_tag = "bsa_pod_1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/disperser)
 "Ih" = (
 /obj/floor_decal/industrial/hatch/orange,
 /obj/structure/ship_munition/disperser_charge/fire,
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/obj/machinery/conveyor{
+	id_tag = "bsa_pod_7"
+	},
+/obj/machinery/payload_interface{
+	name = "OFD Bay 3";
+	id_tag = "bsa_pod_7"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/disperser)
 "Ii" = (
@@ -13780,6 +13871,11 @@
 /obj/machinery/disperser/back{
 	dir = 8
 	},
+/obj/machinery/payload_interface{
+	name = "Obstruction Field Disperser";
+	id_tag = "bsa_main";
+	allow_arming = 1
+	},
 /turf/simulated/floor,
 /area/command/disperser)
 "Iq" = (
@@ -13792,25 +13888,33 @@
 /obj/machinery/computer/ship/disperser{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/monotile,
+/obj/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "Is" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
 	},
-/obj/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/obj/structure/table/rack,
+/obj/random/maintenance/solgov,
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "It" = (
-/obj/machinery/door/airlock/command{
-	name = "Obstruction Field Disperser Magazine";
-	secured_wires = 1
+/obj/machinery/conveyor{
+	dir = 4;
+	id_tag = "bsa_main"
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/light/small/red{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/camera/network/bridge{
+	dir = 4;
+	c_tag = "Fire Control - Munitions"
+	},
+/turf/simulated/floor,
 /area/command/disperser)
 "Iv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13829,6 +13933,14 @@
 "Iw" = (
 /obj/floor_decal/industrial/hatch/red,
 /obj/structure/ship_munition/disperser_charge/explosive,
+/obj/machinery/conveyor{
+	dir = 1;
+	id_tag = "bsa_pod_4"
+	},
+/obj/machinery/payload_interface{
+	name = "OFD Bay 4";
+	id_tag = "bsa_pod_4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/command/disperser)
 "Ix" = (
@@ -13839,33 +13951,22 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/head)
 "Iy" = (
-/obj/structure/sign/warning/hot_exhaust{
-	dir = 1
-	},
+/obj/structure/sign/warning/hot_exhaust,
 /turf/simulated/wall/r_wall/hull,
 /area/command/disperser)
 "IA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/sign/warning/airlock{
-	dir = 1;
-	pixel_y = -32
-	},
-/obj/machinery/access_button{
-	pixel_x = -20;
-	pixel_y = -20;
-	frequency = 1379;
-	command = "cycle_interior";
-	master_tag = "bsa_airlock"
-	},
-/turf/simulated/floor/plating,
+/obj/random/trash,
+/turf/simulated/floor,
 /area/command/disperser)
 "IB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+	dir = 5
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/conveyor{
+	dir = 8;
+	id_tag = "bsa_main"
+	},
+/turf/simulated/floor,
 /area/command/disperser)
 "IC" = (
 /obj/floor_decal/industrial/outline/yellow,
@@ -13920,11 +14021,11 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "IK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/conveyor{
+	dir = 4;
+	id_tag = "bsa_main"
 	},
-/obj/catwalk_plated/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor,
 /area/command/disperser)
 "IL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -16447,9 +16548,13 @@
 /area/maintenance/thirddeck/port)
 "Ow" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/random/trash,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "Ox" = (
 /obj/random_multi/single_item/poppy,
@@ -16590,7 +16695,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/monotile,
+/obj/floor_decal/corner/blue/three_quarters,
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "OS" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -16734,7 +16840,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/thirddeck/starboard)
 "Pp" = (
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/conveyor{
+	dir = 8;
+	id_tag = "bsa_main"
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id_tag = "bsa_main"
+	},
+/turf/simulated/floor,
 /area/command/disperser)
 "Pq" = (
 /obj/floor_decal/industrial/warning{
@@ -17029,10 +17143,11 @@
 /turf/simulated/wall/ocp_wall,
 /area/thruster/d3port)
 "Qj" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor,
 /area/command/disperser)
 "Qk" = (
 /obj/machinery/button/blast_door{
@@ -17224,9 +17339,14 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/hardstorage)
 "QL" = (
-/obj/floor_decal/industrial/hatch/yellow,
-/obj/structure/ship_munition/disperser_charge/mining,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	dir = 8;
+	id_tag = "bsa_main"
+	},
+/turf/simulated/floor,
 /area/command/disperser)
 "QM" = (
 /obj/structure/cable/green{
@@ -18741,12 +18861,12 @@
 /turf/simulated/floor/reinforced,
 /area/thruster/d3starboard)
 "UU" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/conveyor{
+	dir = 8;
+	id_tag = "bsa_main"
 	},
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor,
 /area/command/disperser)
 "UV" = (
 /obj/floor_decal/corner/green{
@@ -18909,7 +19029,6 @@
 /obj/structure/sign/solgov,
 /obj/machinery/door/blast/regular/open{
 	name = "Observation Blast Door";
-	icon_state = "pdoor0";
 	dir = 4;
 	id_tag = "bsa-window"
 	},
@@ -19135,13 +19254,10 @@
 	pixel_y = 28;
 	id_tag = "bsa-window"
 	},
-/obj/floor_decal/corner/grey/border{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "VR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -19413,14 +19529,17 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/thruster/d3starboard)
 "WG" = (
-/obj/floor_decal/corner/grey{
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/camera/network/bridge{
+	dir = 8;
+	c_tag = "Fire Control - Operations"
+	},
+/obj/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "WH" = (
 /obj/floor_decal/corner/blue/diagonal{
@@ -19577,10 +19696,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/teleporter/thirddeck)
 "Xd" = (
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/conveyor{
+	dir = 8;
+	id_tag = "bsa_main"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor,
 /area/command/disperser)
 "Xe" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -19743,6 +19863,10 @@
 	command = "cycle_exterior";
 	master_tag = "bsa_airlock"
 	},
+/obj/machinery/conveyor{
+	dir = 1;
+	id_tag = "bsa_main"
+	},
 /turf/simulated/floor,
 /area/command/disperser)
 "Xz" = (
@@ -19840,11 +19964,16 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/engineering/hardstorage)
 "XN" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	level = 2
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/light/small/red,
+/obj/machinery/door/firedoor,
+/obj/machinery/conveyor{
+	dir = 8;
+	id_tag = "bsa_main"
+	},
+/turf/simulated/floor,
 /area/command/disperser)
 "XO" = (
 /obj/floor_decal/corner/blue/diagonal{
@@ -20167,7 +20296,11 @@
 /area/crew_quarters/head)
 "YL" = (
 /obj/machinery/hologram/holopad/longrange,
-/turf/simulated/floor/tiled/monotile,
+/obj/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/floor/tiled/techfloor,
 /area/command/disperser)
 "YN" = (
 /obj/decal/cleanable/dirt,
@@ -40772,11 +40905,11 @@ aI
 aa
 Qq
 HT
-HZ
+kr
 Id
 Ip
 Xy
-kr
+kS
 vf
 Qq
 aa
@@ -40973,13 +41106,13 @@ Hf
 aI
 aa
 Qq
-HH
-Ia
+ME
+Iy
 Pl
 Ui
 uA
 Iy
-ME
+hZ
 Qq
 aa
 aa
@@ -41181,7 +41314,7 @@ Ia
 Ia
 iz
 Vo
-IA
+Xd
 Qq
 aa
 aa
@@ -41585,7 +41718,7 @@ Ie
 VQ
 YL
 zF
-IB
+UU
 Qq
 aa
 aa
@@ -41787,7 +41920,7 @@ gS
 WG
 bt
 zh
-Be
+QL
 Qq
 aa
 aa
@@ -41983,13 +42116,13 @@ HI
 HO
 HR
 HI
-FE
+HW
 Ib
-If
-Is
+HW
+HW
+HW
+HW
 HB
-kS
-UU
 Qq
 aa
 aa
@@ -42185,13 +42318,13 @@ Qq
 Qq
 Qq
 Qq
-HW
+Is
 DF
-HW
+DU
 It
-HW
-HW
-HW
+If
+HH
+XN
 Qq
 aa
 aa
@@ -42389,10 +42522,10 @@ aa
 Qq
 HX
 DM
-DU
+FE
 IK
 rG
-Pp
+HH
 QL
 Qq
 aa
@@ -42593,8 +42726,8 @@ qq
 Ow
 Qj
 DJ
-XN
-Pp
+DJ
+DJ
 iw
 Qq
 aa
@@ -42792,11 +42925,11 @@ aI
 aa
 Qq
 Qq
-Pp
-Pp
-Pp
-Pp
-Pp
+HZ
+Id
+Xd
+HH
+IA
 Qq
 Qq
 aa
@@ -42997,7 +43130,7 @@ Qq
 Qq
 Ih
 Pp
-Iw
+zf
 Qq
 Qq
 aa
@@ -43197,7 +43330,7 @@ aa
 aa
 aa
 Qq
-Ih
+Be
 Xd
 Iw
 Qq

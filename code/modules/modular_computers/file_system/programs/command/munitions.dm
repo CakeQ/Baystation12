@@ -52,7 +52,7 @@
 	for (var/obj/machinery/payload_interface/interface in munitions)
 		if (!istype(interface))
 			continue
-		var/obj/structure/missile/payload = interface.get_payload()
+		var/atom/payload = interface.get_payload()
 		if (interface.allow_arming)
 			data["armers"] += list(list(
 				"ref" = "\ref[interface]",
@@ -60,8 +60,9 @@
 				"has_payload" = !isnull(payload),
 				"payload_data" = payload ? payload.name : null,
 				"loading" = interface.loading,
-				"arming" = payload?.armed,
-				"firing" = interface.firing
+				"arming" = interface.is_armed(),
+				"firing" = interface.firing,
+				"can_configure" = payload ? istype(payload, /obj/structure/missile) : FALSE
 			))
 		else
 			data["loaders"] += list(list(
@@ -69,7 +70,8 @@
 				"display_name" = interface.name,
 				"has_payload" = !isnull(payload),
 				"payload_data" = payload ? payload.name : null,
-				"loading" = interface.loading
+				"loading" = interface.loading,
+				"can_configure" = payload ? istype(payload, /obj/structure/missile) : FALSE
 			))
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
