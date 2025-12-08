@@ -17,7 +17,7 @@
 		M.add_chemical_effect(CE_STABLE)
 		M.add_chemical_effect(CE_PAINKILLER, 10)
 
-/datum/reagent/inaprovaline/overdose(mob/living/carbon/M)
+/datum/reagent/inaprovaline/process_overdose(mob/living/carbon/M)
 	M.add_chemical_effect(CE_SLOWDOWN, 1)
 	if(prob(5))
 		M.slurring = max(M.slurring, 10)
@@ -41,7 +41,7 @@
 		M.heal_organ_damage(6 * removed, 0)
 		M.add_chemical_effect(CE_PAINKILLER, 10)
 
-/datum/reagent/bicaridine/overdose(mob/living/carbon/M)
+/datum/reagent/bicaridine/process_overdose(mob/living/carbon/M)
 	..()
 	if(ishuman(M))
 		M.add_chemical_effect(CE_BLOCKAGE, (15 + M.metabolized.get_reagent_amount(type) - overdose)/100)
@@ -254,7 +254,7 @@
 /datum/reagent/paracetamol/affect_blood(mob/living/carbon/M, removed)
 	M.add_chemical_effect(CE_PAINKILLER, 35)
 
-/datum/reagent/paracetamol/overdose(mob/living/carbon/M)
+/datum/reagent/paracetamol/process_overdose(mob/living/carbon/M)
 	M.add_chemical_effect(CE_TOXIN, 1)
 	M.druggy = max(M.druggy, 2)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
@@ -273,6 +273,7 @@
 
 /datum/reagent/opiate/affect_metabolites(mob/living/carbon/affected, dose)
 	var/pain_effect = 10 * dose
+	var/hallucination_chance = 0
 	affected.add_chemical_effect(CE_PAINKILLER, pain_effect)
 
 	if (dose > 0.25 * overdose)
@@ -287,18 +288,23 @@
 			affected.slurring = max(affected.slurring, 20)
 	if (dose > overdose)
 		affected.add_chemical_effect(CE_PAINKILLER, dose*0.5)
+		hallucination_chance += dose/3
 
 	var/boozed = affected.chem_effects[CE_ALCOHOL]
 	if(boozed)
 		affected.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
 		affected.add_chemical_effect(CE_BREATHLOSS, 0.1 * boozed) //drinking and opiating makes breathing kinda hard
+		hallucination_chance *= 1.2
 	if(isfast(affected))
 		affected.add_chemical_effect(CE_BREATHLOSS, 0.5)
 		affected.add_chemical_effect(CE_SLOWDOWN, 2) //hyperzine reacts negatively with opiates
+		hallucination_chance *= 1.5
 
-/datum/reagent/opiate/overdose(mob/living/carbon/M)
-	..()
-	M.hallucination(120, 30)
+	hallucination_chance = min(hallucination_chance, 100)
+	if (prob(hallucination_chance))
+		affected.hallucination(60, 30)
+
+/datum/reagent/opiate/process_overdose(mob/living/carbon/M)
 	M.druggy = max(M.druggy, 10)
 	M.add_chemical_effect(CE_BREATHLOSS, 0.6) //Have trouble breathing, need more air
 	if(M.chem_effects[CE_ALCOHOL])
@@ -348,7 +354,7 @@
 	if(prob(25))
 		H.mod_confused(1)
 
-/datum/reagent/deletrathol/overdose(mob/living/carbon/M)
+/datum/reagent/deletrathol/process_overdose(mob/living/carbon/M)
 	..()
 	M.druggy = max(M.druggy, 2)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
@@ -503,6 +509,22 @@
 	M.add_chemical_effect(CE_PULSE, 3)
 	M.add_chemical_effect(CE_STIMULANT, 4)
 
+/datum/reagent/naloxone
+	name = "Naloxone"
+	description = "A reversal agent to nullify the effects of opiates."
+	reagent_state = LIQUID
+	color = "#a4a76d"
+	metabolism = REM * 2
+	overdose = REAGENTS_OVERDOSE * 2
+	value = 2.7
+
+/datum/reagent/naloxone/affect_blood(mob/living/carbon/affected, removed)
+	if (IS_METABOLICALLY_INERT(affected))
+		return
+	if (affected.metabolized.has_reagent(/datum/reagent/opiate))
+		affected.metabolized.remove_reagent(/datum/reagent/opiate, 5 * removed)
+
+
 /datum/reagent/ethylredoxrazine
 	name = "Ethylredoxrazine"
 	description = "A powerful oxidizer that reacts with ethanol."
@@ -573,7 +595,7 @@
 	if (dose > 10)
 		M.add_chemical_effect(CE_ANTIVIRAL, VIRUS_ENGINEERED)
 
-/datum/reagent/spaceacillin/overdose(mob/living/carbon/M)
+/datum/reagent/spaceacillin/process_overdose(mob/living/carbon/M)
 	..()
 	M.add_chemical_effect(CE_ANTIVIRAL, VIRUS_EXOTIC)
 	if(prob(2))
@@ -683,12 +705,11 @@
 		data = world.time
 		to_chat(affected, SPAN_NOTICE("Your mind feels focused and undivided."))
 		affected.add_chemical_effect(CE_MIND, -1) //Amphetamines make you more prone to ill-effects of hallucinogens.
+	if (dose >= overdose && prob(dose))
+		affected.hallucination(60,120)
 
-/datum/reagent/methylphenidate/overdose(mob/living/carbon/affected)
-	..()
-	affected.add_chemical_effect(CE_MIND, -1)
-	affected.add_chemical_effect(CE_STIMULANT, 1)
-	affected.hallucination(60,120)
+/datum/reagent/methylphenidate/process_overdose(mob/living/carbon/affected)
+	affected.seizure()
 
 /datum/reagent/antidepressant
 	name = "Antidepressant"
@@ -716,15 +737,20 @@
 		if (!data || world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
 			data = world.time
 			to_chat(M, SPAN_NOTICE("Your mind feels stable... a little stable."))
-	if (dose > 10)
+	else if (dose > 10 && dose < overdose)
 		M.add_chemical_effect(CE_MIND, 2)
 		if(!data || world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
 			data = world.time
 			to_chat(M, SPAN_NOTICE("Your mind feels much more stable."))
+	else if (dose >= overdose)
+		M.add_chemical_effect(CE_MIND, -1)
+		if(!data || world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
+			data = world.time
+			to_chat(M, SPAN_NOTICE("You feel like your mind is racing!"))
 
-/datum/reagent/antidepressant/overdose(mob/living/carbon/affected)
+/datum/reagent/antidepressant/process_overdose(mob/living/carbon/affected)
 	..()
-	affected.seizure()
+	affected.add_chemical_effect(CE_STIMULANT, 1)
 
 /datum/reagent/antidepressant/citalopram
 	name = "Citalopram"
@@ -765,7 +791,7 @@
 		data = world.time
 		to_chat(M, SPAN_NOTICE("You feel invigorated and calm."))
 
-/datum/reagent/nicotine/overdose(mob/living/carbon/affected)
+/datum/reagent/nicotine/process_overdose(mob/living/carbon/affected)
 	affected.add_chemical_effect(CE_PULSE, 2)
 	if (ishuman(affected) && prob(affected.metabolized.get_reagent_amount(/datum/reagent/nicotine)))
 		var/mob/living/carbon/human/human = affected
@@ -895,7 +921,7 @@
 	M.add_chemical_effect(CE_PAINKILLER, 15)
 	M.add_chemical_effect(CE_ANTIVIRAL, 1)
 
-/datum/reagent/antidexafen/overdose(mob/living/carbon/M)
+/datum/reagent/antidexafen/process_overdose(mob/living/carbon/M)
 	M.add_chemical_effect(CE_TOXIN, 1)
 	M.hallucination(60, 30)
 	M.druggy = max(M.druggy, 2)
@@ -1036,7 +1062,7 @@
 		M.add_chemical_effect(CE_TOXIN, 4) // as strong as taking vanilla 'toxin'
 
 
-/datum/reagent/immunobooster/overdose(mob/living/carbon/M)
+/datum/reagent/immunobooster/process_overdose(mob/living/carbon/M)
 	..()
 	M.add_chemical_effect(CE_TOXIN, 1)
 	M.immunity -= 0.5 //inverse effects when abused

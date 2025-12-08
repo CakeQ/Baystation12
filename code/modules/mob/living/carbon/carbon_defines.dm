@@ -10,7 +10,6 @@
 	//Active emote/pose
 	var/pose = null
 	var/list/chem_effects = list()
-	var/list/chem_doses = list()
 
 	///Metabolized contains the breakdown products of processed reagents in the body. Most are inert, but some exert an effect. No reactions occur in this holder.
 	var/datum/reagents/metabolism/metabolized = null

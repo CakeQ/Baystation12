@@ -276,7 +276,7 @@
 	charges = list(
 		list("synaptizine",   "synaptizine",   /datum/reagent/synaptizine,        10),
 		list("inaprovaline",  "inaprovaline",  /datum/reagent/inaprovaline,       30),
-		list("oxycodone",     "oxycodone",     /datum/reagent/tramadol/oxycodone, 10),
+		list("oxycodone",     "oxycodone",     /datum/reagent/opiate/oxycodone, 10),
 		list("tricordrazine", "tricordrazine", /datum/reagent/tricordrazine,      15),
 		list("coagulant",     "coagulant",     /datum/reagent/coagulant,          15),
 		list("dexalin plus",  "dexalin plus",  /datum/reagent/dexalinp,           30),
@@ -307,7 +307,7 @@
 		list("inaprovaline",  "inaprovaline",  /datum/reagent/inaprovaline,       50),
 		list("dermaline",     "dermaline",     /datum/reagent/dermaline,          30),
 		list("bicaridine",    "bicaridine",    /datum/reagent/bicaridine,         40),
-		list("oxycodone",     "oxycodone",     /datum/reagent/tramadol/oxycodone, 40),
+		list("oxycodone",     "oxycodone",     /datum/reagent/opiate/oxycodone, 40),
 		list("dylovene",      "dylovene",      /datum/reagent/dylovene,           50)
 		)
 

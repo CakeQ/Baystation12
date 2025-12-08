@@ -299,6 +299,13 @@
 	required_reagents = list(/datum/reagent/carbon = 1, /datum/reagent/hydrazine = 1, /datum/reagent/dylovene = 1)
 	result_amount = 3
 
+/singleton/reaction/naloxone
+	name = "Naloxone"
+	result = /datum/reagent/naloxone
+	required_reagents = list(/datum/reagent/ethanol = 1, /datum/reagent/inaprovaline = 1)
+	catalysts = list(/datum/reagent/toxin/phoron = 5)
+	result_amount = 2
+
 /singleton/reaction/ethylredoxrazine
 	name = "Ethylredoxrazine"
 	result = /datum/reagent/ethylredoxrazine

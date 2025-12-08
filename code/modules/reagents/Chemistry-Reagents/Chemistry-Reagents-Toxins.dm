@@ -267,7 +267,7 @@
 		M.take_organ_damage(6 * removed, 0)
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
 
-/datum/reagent/toxin/stimm/overdose(mob/living/carbon/M)
+/datum/reagent/toxin/stimm/process_overdose(mob/living/carbon/M)
 	..()
 	if (prob(10)) // 1 in 10. This thing's made with welder fuel and fertilizer, what do you expect?
 		var/mob/living/carbon/human/H = M
@@ -364,7 +364,7 @@
 	..()
 	M.mod_confused(2)
 
-/datum/reagent/toxin/taxine/overdose(mob/living/carbon/M)
+/datum/reagent/toxin/taxine/process_overdose(mob/living/carbon/M)
 	..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -383,7 +383,7 @@
 	heating_point = null
 	heating_products = null
 
-/datum/reagent/toxin/potassium_chloride/overdose(mob/living/carbon/M)
+/datum/reagent/toxin/potassium_chloride/process_overdose(mob/living/carbon/M)
 	..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -633,10 +633,16 @@
 	scannable = TRUE
 	should_admin_log = TRUE
 
+/datum/reagent/soporofic/affect_blood(mob/living/carbon/affected, removed)
+	if (IS_METABOLICALLY_INERT(affected))
+		return
+	if (affected.metabolized.has_reagent(/datum/reagent/methylphenidate))
+		affected.metabolized.remove_reagent(/datum/reagent/methylphenidate, 5 * removed)
+
+
 /datum/reagent/soporific/affect_metabolites(mob/living/carbon/M, dose)
 	if (IS_METABOLICALLY_INERT(M))
 		return
-
 	var/threshold = 1 + (0.2 * GET_TRAIT_LEVEL(M, /singleton/trait/boon/clear_mind))
 
 	if(dose < 1 * threshold)
@@ -668,26 +674,6 @@
 	bioavailability = 0.8
 	value = 2.6
 	should_admin_log = TRUE
-
-/datum/reagent/chloralhydrate/affect_blood(mob/living/carbon/M, removed)
-	if (IS_METABOLICALLY_INERT(M))
-		return
-
-	var/threshold = 1 + (0.2 * GET_TRAIT_LEVEL(M, /singleton/trait/boon/clear_mind))
-	M.add_chemical_effect(CE_SEDATE, 1)
-
-	if(M.chem_doses[type] <= metabolism * threshold)
-		M.mod_confused(2)
-		M.drowsyness += 2
-
-	if(M.chem_doses[type] < 2 * threshold)
-		M.Weaken(30)
-		M.eye_blurry = max(M.eye_blurry, 10)
-	else
-		M.Sleeping(30)
-
-	if(M.chem_doses[type] > 1 * threshold)
-		M.adjustToxLoss(removed)
 
 /datum/reagent/chloralhydrate/beer //disguised as normal beer for use by emagged brobots
 	name = "Beer"
@@ -1019,7 +1005,7 @@
 /datum/reagent/drugs/three_eye/on_leaving_metabolism(mob/parent, metabolism_class)
 	parent.remove_client_color(/datum/client_color/thirdeye)
 
-/datum/reagent/drugs/three_eye/overdose(mob/living/carbon/M)
+/datum/reagent/drugs/three_eye/process_overdose(mob/living/carbon/M)
 	..()
 	M.adjustBrainLoss(rand(1, 5))
 	if(ishuman(M) && prob(10))

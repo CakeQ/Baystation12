@@ -417,8 +417,8 @@
 		else
 			overdose_amount = bloodstr.get_reagent_amount(reagent.type)
 
-		if (overdose_amount >= reagent.overdose)
-			reagent.overdose(src)
+		if (reagent.overdose && overdose_amount >= reagent.overdose)
+			reagent.process_overdose(src)
 
 		if (last_time_metabolite[reagent.type] + 3 SECONDS > world.time)
 			continue

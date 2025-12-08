@@ -172,7 +172,7 @@
 /datum/reagent/proc/affect_touch(mob/living/carbon/M, removed)
 	return
 
-/datum/reagent/proc/overdose(mob/living/carbon/M) // Overdose effect. Doesn't happen instantly.
+/datum/reagent/proc/process_overdose(mob/living/carbon/M) // Overdose effect. Doesn't happen instantly.
 	M.add_chemical_effect(CE_TOXIN, 1)
 	M.adjustToxLoss(REM)
 	return

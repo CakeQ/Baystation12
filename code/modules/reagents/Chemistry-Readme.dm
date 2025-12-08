@@ -222,8 +222,8 @@ About Reagents:
 		affect_metabolites(var/mob/living/carbon/M, var/removed)
 			Handles effects caused by buildup of active metabolites after being ingested. Most drugs don't have any.
 
-		overdose(var/mob/living/carbon/M)
-			Called when bloodstream and metabolized contents combined are above overdose. Defaults to M.adjustToxLoss(REM).
+		process_overdose(var/mob/living/carbon/M)
+			Called when bloodstream OR metabolized contents (depending on reagent) are above overdose threshold. Defaults to M.adjustToxLoss(REM).
 
 		initialize_data(var/newdata)
 			Called when reagent is created. Defaults to setting [data] to [newdata].

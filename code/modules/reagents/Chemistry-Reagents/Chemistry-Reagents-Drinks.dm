@@ -339,7 +339,7 @@
 	..()
 	M.add_chemical_effect(CE_PULSE, 2)
 
-/datum/reagent/drink/coffee/overdose(mob/living/carbon/M)
+/datum/reagent/drink/coffee/process_overdose(mob/living/carbon/M)
 	if (IS_METABOLICALLY_INERT(M))
 		return
 	M.make_jittery(5)
