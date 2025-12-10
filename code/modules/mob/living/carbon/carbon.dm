@@ -27,6 +27,7 @@
 	bloodstr.clear_reagents()
 	touching.clear_reagents()
 	metabolized.clear_reagents()
+	last_time_metabolite = list()
 	var/datum/reagents/R = get_ingested_reagents()
 	if(istype(R))
 		R.clear_reagents()
