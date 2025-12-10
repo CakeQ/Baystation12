@@ -325,13 +325,14 @@
 	taste_description = "sourness"
 	color = "#cb68fc"
 	value = 3.1
-	metabolite_potency = 1
+	metabolite_potency = 2
 
 /datum/reagent/opiate/oxycodone
 	name = "Oxycodone"
 	description = "An effective and very addictive painkiller. Don't mix with alcohol."
 	taste_description = "bitterness"
 	color = "#800080"
+	value = 3.5
 	metabolite_potency = 5
 
 /datum/reagent/deletrathol
@@ -342,7 +343,6 @@
 	reagent_state = LIQUID
 	overdose = 15
 	scannable = 1
-	metabolism = 0.02
 	flags = IGNORE_MOB_SIZE
 
 /datum/reagent/deletrathol/affect_blood(mob/living/carbon/human/H, removed)
@@ -514,6 +514,7 @@
 	description = "A reversal agent to nullify the effects of opiates."
 	reagent_state = LIQUID
 	color = "#a4a76d"
+	scannable = TRUE
 	metabolism = REM * 2
 	overdose = REAGENTS_OVERDOSE * 2
 	value = 2.7
@@ -689,7 +690,8 @@
 	reagent_state = LIQUID
 	color = "#bf80bf"
 	scannable = 1
-	metabolism = 0.02
+	metabolism = REM
+	removal_multiplier = 0.01
 	bioavailability = 0.8
 	active_metabolites = /datum/reagent/methylphenidate
 	data = 0
@@ -698,7 +700,7 @@
 /datum/reagent/methylphenidate/affect_metabolites(mob/living/carbon/affected, dose)
 	if (IS_METABOLICALLY_INERT(affected))
 		return
-	if (data && dose <= 0.1)
+	if (data && dose <= 1)
 		data = 0
 		to_chat(affected, SPAN_WARNING("You feel unfocused..."))
 	if (!data || world.time > data + ANTIDEPRESSANT_MESSAGE_DELAY)
@@ -772,8 +774,8 @@
 	reagent_state = LIQUID
 	color = "#efebaa"
 	metabolism = 0.5
-	removal_multiplier = 0.05
-	overdose = 10
+	removal_multiplier = 0.1
+	overdose = 20
 	active_metabolites = /datum/reagent/nicotine
 	scannable = 1
 	data = 0
@@ -797,7 +799,7 @@
 		var/mob/living/carbon/human/human = affected
 		var/obj/item/organ/internal/heart/heart = human.internal_organs_by_name[BP_HEART]
 		if (heart && istype(heart))
-			heart.take_internal_damage(1,0)
+			heart.take_internal_damage(0.2,0)
 
 /datum/reagent/tobacco
 	name = "Tobacco"
