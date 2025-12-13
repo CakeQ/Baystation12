@@ -364,7 +364,7 @@ GLOBAL_TYPED_NEW(temp_reagents_holder, /obj)
 	if (!target_holder || !istype(target_holder) || !reagent || !istype(reagent))
 		return
 
-	amount = max(0, min(amount, reagent.volume, target_holder.get_free_space() / multiplier))
+	amount = max(0, min(amount, reagent.volume, target_holder.get_free_space() / (multiplier ? multiplier : 1)))
 	if (!amount)
 		return
 	target_holder.add_reagent(reagent.type, amount * multiplier, reagent.get_data(), safety)
