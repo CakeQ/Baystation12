@@ -341,7 +341,8 @@
 	taste_description = "confusion"
 	color = "#800080"
 	reagent_state = LIQUID
-	overdose = 15
+	overdose = 10
+	metabolism = 0.02
 	scannable = 1
 	flags = IGNORE_MOB_SIZE
 
