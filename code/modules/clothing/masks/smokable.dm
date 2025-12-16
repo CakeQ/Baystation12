@@ -45,7 +45,7 @@
 	light(0)
 
 /obj/item/clothing/mask/smokable/proc/smoke(amount)
-	smoketime -= amount
+	smoketime = max(smoketime - amount, 0.5)
 	if(reagents && reagents.total_volume) // check if it has any reagents at all
 		var/consumption_rate = reagents.total_volume / smoketime
 		if(ishuman(loc))

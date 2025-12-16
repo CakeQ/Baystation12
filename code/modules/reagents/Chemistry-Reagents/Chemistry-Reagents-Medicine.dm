@@ -265,28 +265,28 @@
 	taste_description = "generic sourness"
 	reagent_state = LIQUID
 	color = "#7b23a4"
-	overdose = 30
+	overdose = 60
 	scannable = TRUE
-	metabolism = 0.05
+	metabolism = 0.1
 	active_metabolites = /datum/reagent/opiate
 	flags = IGNORE_MOB_SIZE
 
 /datum/reagent/opiate/affect_metabolites(mob/living/carbon/affected, dose)
-	var/pain_effect = 10 * dose
+	var/pain_effect = 5 * dose
 	var/hallucination_chance = 0
 	affected.add_chemical_effect(CE_PAINKILLER, pain_effect)
 
-	if (dose > 0.25 * overdose)
+	if (dose >= 0.25 * overdose)
 		affected.add_chemical_effect(CE_SLOWDOWN, 1)
-	if (dose > 0.5 * overdose)
+	if (dose >= 0.5 * overdose)
 		affected.add_chemical_effect(CE_SLOWDOWN, 1)
 		if (prob(1))
 			affected.slurring = max(affected.slurring, 10)
-	if (dose > 0.75 * overdose)
+	if (dose >= 0.75 * overdose)
 		affected.add_chemical_effect(CE_SLOWDOWN, 1)
 		if (prob(10))
 			affected.slurring = max(affected.slurring, 20)
-	if (dose > overdose)
+	if (dose >= overdose)
 		affected.add_chemical_effect(CE_PAINKILLER, dose*0.5)
 		hallucination_chance += dose/3
 

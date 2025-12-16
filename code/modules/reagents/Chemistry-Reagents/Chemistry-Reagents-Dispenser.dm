@@ -140,22 +140,22 @@
 		strength_mod = 0
 
 	affected.add_chemical_effect(CE_ALCOHOL, 1)
-	affected.add_chemical_effect(CE_PAINKILLER, clamp(round((dose/10) * 10, 1), 1, 80))
+	affected.add_chemical_effect(CE_PAINKILLER, clamp(round(dose, 1), 1, 80))
 	var/effective_dose = dose * strength_mod
 
-	if (effective_dose >= 15)
+	if (prob(effective_dose*2))
 		affected.make_dizzy(6)
-	if (effective_dose >= 30)
+	if (effective_dose >= 0.5 * overdose)
 		affected.slurring = max(affected.slurring, 30)
 		affected.add_chemical_effect(CE_ALCOHOL, 1)
-	if (effective_dose >= 45)
+	if (effective_dose >= 0.75 * overdose)
 		affected.set_confused(20)
 		affected.add_chemical_effect(CE_ALCOHOL, 1)
-	if (effective_dose >= 60)
+	if (effective_dose >= overdose)
 		affected.eye_blurry = max(affected.eye_blurry, 10)
 		affected.drowsyness = max(affected.drowsyness, 20)
 		affected.add_chemical_effect(CE_ALCOHOL_TOXIC, clamp(round(dose/60, 1), 1, 8))
-	if (effective_dose >= 90)
+	if (effective_dose >= 1.5 * overdose)
 		affected.Paralyse(20)
 		affected.Sleeping(30)
 

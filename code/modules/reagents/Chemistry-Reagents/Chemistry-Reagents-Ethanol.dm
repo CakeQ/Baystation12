@@ -59,7 +59,7 @@
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water."
 	taste_description = "piss water"
 	color = "#ffd300"
-	metabolite_potency = 0.6
+	metabolite_potency = 0.4
 	nutriment_factor = 4
 
 	glass_name = "beer"
@@ -68,7 +68,7 @@
 /datum/reagent/ethanol/beer/good
 
 	taste_description = "beer"
-	metabolite_potency = 0.5
+	metabolite_potency = 0.3
 
 /datum/reagent/ethanol/beer/affect_ingest(mob/living/carbon/M, removed)
 	..()
