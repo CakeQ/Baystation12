@@ -1515,22 +1515,24 @@
 
 /datum/reagent/ethanol/qokkloa/affect_ingest(mob/living/carbon/M, removed)
 	..()
-	if (ishuman(M))
-		M.adjustToxLoss(5 * removed)
-	if (M.chem_effects[CE_ALCOHOL] > 1 && ishuman(M))
+	if (!ishuman(M) || HAS_TRAIT(M, /singleton/trait/boon/clear_mind))
+		return
+	M.adjustToxLoss(5 * removed)
+	if (M.chem_effects[CE_ALCOHOL] > 1)
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/heart/L = H.internal_organs_by_name[BP_HEART]
 		if (istype(L))
 			L.take_internal_damage(M.chem_effects[CE_ALCOHOL_TOXIC] * removed, 0)
 			M.adjustToxLoss(5 * M.chem_effects[CE_ALCOHOL_TOXIC] * removed)
 
-/datum/reagent/ethanol/qokkhrona
+/datum/reagent/ethanol/qokkloa/qokkhrona
 	name = "Qokk'hrona"
 	description = "Delicious Skrellian wine from refined qokk'loa."
 	taste_description = "a thick potion of mushroom, slime, and hard alcohol"
 	color = "#c76c4d"
 	metabolite_potency = 0.05
 	druggy = 5
+	halluci = 0
 
 	glass_name = "qokk'hrona"
 	glass_desc = "Delicious Skrellian wine from refined qokk'loa."

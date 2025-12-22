@@ -554,3 +554,8 @@
 
 /mob/living/carbon/proc/vomit(timevomit = 1, level = 3, delay = 0)
 	return
+
+/mob/living/carbon/proc/is_fast()
+	if (bloodstr.has_reagent(/datum/reagent/hyperzine) || metabolized.has_reagent(/datum/reagent/hyperzine))
+		return TRUE
+	else return FALSE

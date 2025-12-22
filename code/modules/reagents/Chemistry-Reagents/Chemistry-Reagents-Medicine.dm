@@ -272,20 +272,20 @@
 	flags = IGNORE_MOB_SIZE
 
 /datum/reagent/opiate/affect_metabolites(mob/living/carbon/affected, dose)
+	if (!istype(affected))
+		return
 	var/pain_effect = 5 * dose
 	var/hallucination_chance = 0
 	affected.add_chemical_effect(CE_PAINKILLER, pain_effect)
 
-	if (dose >= 0.25 * overdose)
-		affected.add_chemical_effect(CE_SLOWDOWN, 1)
+	if ((dose >= 0.25 * overdose) && prob(1))
+		affected.slurring = max(affected.slurring, 10)
 	if (dose >= 0.5 * overdose)
-		affected.add_chemical_effect(CE_SLOWDOWN, 1)
-		if (prob(1))
-			affected.slurring = max(affected.slurring, 10)
-	if (dose >= 0.75 * overdose)
 		affected.add_chemical_effect(CE_SLOWDOWN, 1)
 		if (prob(10))
 			affected.slurring = max(affected.slurring, 20)
+	if (dose >= 0.75 * overdose)
+		affected.add_chemical_effect(CE_SLOWDOWN, 1)
 	if (dose >= overdose)
 		affected.add_chemical_effect(CE_PAINKILLER, dose*0.5)
 		hallucination_chance += dose/3
@@ -295,7 +295,7 @@
 		affected.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
 		affected.add_chemical_effect(CE_BREATHLOSS, 0.1 * boozed) //drinking and opiating makes breathing kinda hard
 		hallucination_chance *= 1.2
-	if(isfast(affected))
+	if(affected.is_fast())
 		affected.add_chemical_effect(CE_BREATHLOSS, 0.5)
 		affected.add_chemical_effect(CE_SLOWDOWN, 2) //hyperzine reacts negatively with opiates
 		hallucination_chance *= 1.5
@@ -305,19 +305,16 @@
 		affected.hallucination(60, 30)
 
 /datum/reagent/opiate/process_overdose(mob/living/carbon/M)
+	if (!istype(M))
+		return
 	M.druggy = max(M.druggy, 10)
 	M.add_chemical_effect(CE_BREATHLOSS, 0.6) //Have trouble breathing, need more air
 	if(M.chem_effects[CE_ALCOHOL])
 		M.add_chemical_effect(CE_BREATHLOSS, 0.2) //Don't drink and OD on opiates folks
-	if(isfast(M))
+	if(M.is_fast())
 		M.add_chemical_effect(CE_NOPULSE, 1)
 		var/obj/item/organ/internal/heart = M.internal_organs_by_name[BP_HEART] //heart damage + arrest
 		heart.take_internal_damage(heart.max_damage * 0.045)
-
-/datum/reagent/opiate/proc/isfast(mob/living/carbon/M)
-	if (M.bloodstr.has_reagent(/datum/reagent/hyperzine) || M.metabolized.has_reagent(/datum/reagent/hyperzine))
-		return TRUE
-	else return FALSE
 
 /datum/reagent/opiate/tramadol
 	name = "Tramadol"

@@ -2893,7 +2893,7 @@
 
 /singleton/reaction/qokkhrona
 	name = "Qokk'Hrona"
-	result = /datum/reagent/ethanol/qokkhrona
+	result = /datum/reagent/ethanol/qokkloa/qokkhrona
 	required_reagents = list(/datum/reagent/ethanol/qokkloa = 2, /datum/reagent/ethanol/wine = 1)
 	catalysts = list(/datum/reagent/enzyme = 5)
 	result_amount = 3
