@@ -86,7 +86,7 @@
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "ap" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/modular/preset/helm,
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "aq" = (
@@ -94,7 +94,7 @@
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "ar" = (
-/obj/machinery/computer/modular/preset/helm,
+/obj/machinery/computer/modular/preset/engine_control,
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "as" = (

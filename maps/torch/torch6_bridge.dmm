@@ -2561,7 +2561,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
 "eH" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/modular/preset/helm{
 	req_access = list(list("ACCESS_TORCH_AQUILA_HELM"))
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -3116,7 +3116,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/computer/modular/preset/helm,
+/obj/machinery/computer/modular/preset/engine_control,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/aquila/cockpit)
 "fK" = (
@@ -13933,7 +13933,7 @@
 /turf/simulated/floor/carpet/blue2,
 /area/crew_quarters/heads/office/sgr)
 "QW" = (
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 4
 	},
 /obj/floor_decal/corner/blue/mono,
@@ -14103,7 +14103,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/bridge/fore)
 "Rq" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/modular/preset/helm{
 	dir = 4;
 	req_access = list(list("ACCESS_TORCH_HELM"))
 	},

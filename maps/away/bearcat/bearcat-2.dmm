@@ -47,7 +47,7 @@
 /turf/simulated/floor/bluegrid,
 /area/ship/scrap/command/bridge)
 "ah" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/modular/preset/helm{
 	req_access = list(list("ACCESS_BEARCAT"))
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -86,7 +86,7 @@
 	dir = 4;
 	level = 2
 	},
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4504,7 +4504,7 @@
 /obj/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -5567,7 +5567,7 @@
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/maintenance/atmos)
 "wI" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/modular/preset/helm,
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 1
@@ -6095,7 +6095,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 4
 	},
 /obj/machinery/firealarm{

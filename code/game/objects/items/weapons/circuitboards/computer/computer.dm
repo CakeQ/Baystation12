@@ -73,10 +73,6 @@
 	build_path = /obj/machinery/computer/operating
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
 
-/obj/item/stock_parts/circuitboard/helm
-	name = "circuit board (helm control console)"
-	build_path = /obj/machinery/computer/ship/helm
-
 /obj/item/stock_parts/circuitboard/area_atmos
 	name = "circuit board (area air control console)"
 	build_path = /obj/machinery/computer/area_atmos

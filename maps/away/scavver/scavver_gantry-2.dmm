@@ -209,7 +209,7 @@
 /turf/simulated/floor,
 /area/space)
 "ce" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/modular/preset/helm{
 	dir = 4
 	},
 /obj/floor_decal/corner/grey/border{
@@ -1856,7 +1856,7 @@
 	},
 /area/scavver/lifepod)
 "pq" = (
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 8
 	},
 /obj/floor_decal/techfloor/orange{
@@ -2507,7 +2507,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 4
 	},
 /obj/machinery/firealarm{
@@ -2739,7 +2739,7 @@
 	},
 /area/scavver/lifepod)
 "vs" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/modular/preset/helm{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{

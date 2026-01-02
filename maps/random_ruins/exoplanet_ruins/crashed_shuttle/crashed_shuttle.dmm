@@ -62,7 +62,7 @@
 "Kv" = (/obj/decal/cleanable/liquid_fuel,/obj/machinery/atmospherics/pipe/simple/visible/red,/turf/simulated/floor/plating,/area/map_template/crashed_shuttle/graysontug)
 "Lp" = (/obj/structure/bed/chair/shuttle/blue{dir = 1; icon_state = "shuttle_chair_preview"},/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 8},/obj/overmap/visitable/ship/landable/graysontug,/obj/shuttle_landmark/graysontug/start,/turf/simulated/floor/plating,/area/map_template/crashed_shuttle/graysontug)
 "Oc" = (/obj/paint/sun,/turf/simulated/wall/titanium,/area/map_template/crashed_shuttle/graysontug)
-"OY" = (/obj/machinery/computer/ship/helm{dir = 8},/turf/simulated/floor/plating,/area/map_template/crashed_shuttle/graysontug)
+"OY" = (/obj/machinery/computer/modular/preset/helm{dir = 8},/turf/simulated/floor/plating,/area/map_template/crashed_shuttle/graysontug)
 "Pa" = (/obj/item/material/shard,/obj/structure/firedoor_assembly,/turf/simulated/floor/plating,/area/map_template/crashed_shuttle/graysontug)
 "PB" = (/turf/template_noop,/area/map_template/crashed_shuttle/crash)
 "QQ" = (/obj/decal/cleanable/liquid_fuel,/obj/structure/railing/mapped,/obj/machinery/atmospherics/portables_connector{dir = 1},/turf/simulated/floor/plating,/area/map_template/crashed_shuttle/graysontug)

@@ -249,7 +249,7 @@
 /turf/simulated/floor/plating,
 /area/map_template/merc_shuttle)
 "cE" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/modular/preset/helm,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/merc_shuttle)
 "cG" = (
@@ -278,7 +278,7 @@
 /turf/simulated/floor/plating,
 /area/map_template/merc_shuttle)
 "cM" = (
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	uncreated_component_parts = list(/obj/item/stock_parts/power/battery/buildable/responsive=1,/obj/item/cell/high=1)
 	},
 /obj/item/device/radio/intercom/hailing{
@@ -3047,7 +3047,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,

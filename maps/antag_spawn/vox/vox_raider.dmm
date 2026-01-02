@@ -354,7 +354,7 @@
 /turf/simulated/floor/shuttle_ceiling/vox,
 /area/map_template/vox_raider)
 "ez" = (
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /obj/machinery/light/vox{
@@ -430,7 +430,7 @@
 /turf/simulated/floor/tiled/dark/vox,
 /area/map_template/vox_raider)
 "ff" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/modular/preset/helm{
 	dir = 4;
 	req_access = list("ACCESS_SYNDICATE")
 	},

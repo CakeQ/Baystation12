@@ -854,7 +854,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/sfv_arbiter)
 "Bb" = (
-/obj/machinery/computer/modular/preset/helm,
+/obj/machinery/computer/modular/preset/engine_control,
 /obj/floor_decal/corner/blue/mono,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/map_template/sfv_arbiter)
@@ -1288,7 +1288,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/sfv_arbiter)
 "Ll" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/modular/preset/helm{
 	dir = 4
 	},
 /obj/structure/cable/cyan{

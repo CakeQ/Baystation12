@@ -69,8 +69,8 @@ GLOBAL_LIST_EMPTY(known_overmap_sectors)
 		LAZYADD(GLOB.known_overmap_sectors, src)
 		layer = ABOVE_LIGHTING_LAYER
 		plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		for(var/obj/machinery/computer/ship/helm/H as anything in GLOB.overmap_helm_computers)
-			H.add_known_sector(src)
+		for (var/datum/nano_module/program/ship/helm/helm in GLOB.overmap_helm_computers)
+			helm.add_known_sector(src)
 
 	docking_codes = "[ascii2text(rand(65,90))][ascii2text(rand(65,90))][ascii2text(rand(65,90))][ascii2text(rand(65,90))]"
 
@@ -170,16 +170,15 @@ GLOBAL_LIST_EMPTY(known_overmap_sectors)
 
 /obj/overmap/visitable/sector/Initialize()
 	. = ..()
-	if(HAS_FLAGS(sector_flags, OVERMAP_SECTOR_KNOWN))
-		for(var/obj/machinery/computer/ship/helm/H as anything in GLOB.overmap_helm_computers)
-			update_known_connections(TRUE)
+	if (HAS_FLAGS(sector_flags, OVERMAP_SECTOR_KNOWN))
+		update_known_connections(TRUE)
 
 
 /obj/overmap/visitable/sector/update_known_connections(notify = FALSE)
 	. = ..()
 
-	for(var/obj/machinery/computer/ship/helm/H in SSmachines.machinery)
-		H.add_known_sector(src, notify)
+	for (var/datum/nano_module/program/ship/helm/helm in GLOB.overmap_helm_computers)
+		helm.add_known_sector(src, notify)
 
 
 // Because of the way these are spawned, they will potentially have their invisibility adjusted by the turfs they are mapped on
@@ -212,7 +211,7 @@ GLOBAL_LIST_EMPTY(known_overmap_sectors)
 		var/obj/overmap/visitable/star/star = new (sun_turf)
 		GLOB.map_stars += star
 		GLOB.known_overmap_sectors += star
-		for (var/obj/machinery/computer/ship/helm/helm as anything in GLOB.overmap_helm_computers)
+		for (var/datum/nano_module/program/ship/helm/helm as anything in GLOB.overmap_helm_computers)
 			helm.add_known_sector(star)
 
 	testing("Overmap build complete.")

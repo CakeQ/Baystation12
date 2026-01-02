@@ -456,7 +456,7 @@
 "aN" = (
 /obj/structure/table/rack,
 /obj/floor_decal/industrial/outline/yellow,
-/obj/item/stock_parts/circuitboard/helm,
+/obj/item/stock_parts/computer/hard_drive/super/helm,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/storage/tech)
 "aO" = (
@@ -7807,7 +7807,7 @@
 	pixel_x = -6;
 	pixel_y = -26
 	},
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel_grid,
@@ -12673,7 +12673,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/maintenance/seconddeck/aftport)
 "FD" = (
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,

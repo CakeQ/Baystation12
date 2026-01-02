@@ -479,7 +479,7 @@
 /turf/simulated/floor/plating,
 /area/errant_pisces/enginering)
 "bq" = (
-/obj/machinery/computer/modular/preset/helm,
+/obj/machinery/computer/modular/preset/engine_control,
 /turf/simulated/floor/plating,
 /area/errant_pisces/enginering)
 "br" = (
@@ -6497,13 +6497,13 @@
 /turf/simulated/floor/tiled,
 /area/errant_pisces/bridge)
 "qg" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/modular/preset/helm{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/errant_pisces/bridge)
 "qh" = (
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,

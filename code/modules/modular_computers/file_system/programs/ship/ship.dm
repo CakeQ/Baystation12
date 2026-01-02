@@ -7,7 +7,6 @@
 
 /datum/nano_module/program/ship
 	abstract_type = /datum/nano_module/program/ship
-	var/datum/browser/reconnect_popup
 	var/obj/overmap/visitable/ship/linked = null
 	var/list/viewers // Weakrefs to mobs in direct-view mode.
 	var/extra_view = 0 // how much the view is increased by when the mob is in overmap mode.

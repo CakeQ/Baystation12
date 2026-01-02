@@ -528,13 +528,6 @@
 	build_path = /obj/item/stock_parts/circuitboard/unary_atmos/engine
 	sort_string = "JFAAA"
 
-/datum/design/circuit/helms
-	name = "helm control console"
-	id = "helms"
-	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3)
-	build_path = /obj/item/stock_parts/circuitboard/helm
-	sort_string = "JFAAB"
-
 /datum/design/circuit/shuttle
 	name = "basic shuttle console"
 	id = "shuttle"

@@ -205,7 +205,7 @@
 	)
 	autorun_program = /datum/computer_file/program/filemanager
 
-/obj/machinery/computer/modular/preset/helm
+/obj/machinery/computer/modular/preset/engine_control
 	default_software = list(
 		/datum/computer_file/program/ship/engine_control
 	)
@@ -234,3 +234,12 @@
 		/datum/computer_file/program/ship/sensors/spacer
 	)
 	autorun_program = /datum/computer_file/program/ship/sensors/spacer
+
+/obj/machinery/computer/modular/preset/helm
+	default_software = list(
+		/datum/computer_file/program/ship/helm
+	)
+	uncreated_component_parts = list(
+		/obj/item/stock_parts/computer/ship_interface
+	)
+	autorun_program = /datum/computer_file/program/ship/helm

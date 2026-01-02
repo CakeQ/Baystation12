@@ -3467,7 +3467,7 @@
 /turf/unsimulated/mask,
 /area/space)
 "ho" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/modular/preset/helm{
 	dir = 2
 	},
 /obj/floor_decal/techfloor{
@@ -3633,7 +3633,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/shuttle/abadoned_data_capsule)
 "hz" = (
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 1
 	},
 /obj/floor_decal/techfloor{

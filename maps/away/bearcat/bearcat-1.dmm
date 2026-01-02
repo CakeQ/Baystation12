@@ -2048,7 +2048,8 @@
 /turf/simulated/floor/tiled,
 /area/ship/scrap/maintenance/techstorage)
 "ec" = (
-/obj/item/stock_parts/circuitboard/helm,
+/obj/item/stock_parts/computer/hard_drive/super/helm,
+/obj/item/stock_parts/circuitboard/modular_computer,
 /obj/item/stock_parts/circuitboard/unary_atmos/cooler,
 /obj/structure/table/rack,
 /obj/floor_decal/corner/yellow{

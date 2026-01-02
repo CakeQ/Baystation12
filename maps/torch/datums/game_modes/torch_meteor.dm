@@ -29,8 +29,9 @@
 		if((get_z(E) in GLOB.using_map.station_levels) && !MACHINE_IS_BROKEN(E))
 			eng_status++
 	var/nav_status = FALSE
-	for(var/obj/machinery/computer/ship/helm/H in SSmachines.machinery)
-		if((get_z(H) in GLOB.using_map.station_levels) && !MACHINE_IS_BROKEN(H))
+	for (var/datum/nano_module/program/ship/helm/helm in GLOB.overmap_helm_computers)
+		var/obj/machinery/helm_computer = helm.nano_host()
+		if(istype(helm_computer) && (helm_computer.z in GLOB.using_map.station_levels) && !MACHINE_IS_BROKEN(helm_computer))
 			nav_status = TRUE
 	var/bsd_status = FALSE
 	var/area/A = locate(/area/engineering/bluespace) in world

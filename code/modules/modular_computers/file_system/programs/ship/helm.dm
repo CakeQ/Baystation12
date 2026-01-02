@@ -2,15 +2,19 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 
 GLOBAL_LIST_EMPTY(overmap_helm_computers)
 
-/obj/machinery/computer/ship/helm
-	name = "helm control console"
-	icon_keyboard = "teleport_key"
-	icon_screen = "helm"
-	light_color = "#7faaff"
-	core_skill = SKILL_PILOT
-	silicon_restriction = STATUS_UPDATE
-	machine_name = "helm control console"
-	machine_desc = "A navigation system used to control spacecraft big and small, allowing for configuration of heading and autopilot as well as providing navigational data."
+/datum/computer_file/program/ship/helm
+	filename = "helm"
+	filedesc = "Helm Control"
+	nanomodule_path = /datum/nano_module/program/ship/helm
+	program_icon_state = "helm"
+	program_key_state = "teleport_key"
+	program_menu_icon = "arrow-4"
+	extended_desc = "A navigation program used to control spacecraft big and small, allowing for configuration of heading, autopilot, take-off and landing, as well as providing navigational data."
+	usage_flags = PROGRAM_CONSOLE|PROGRAM_NO_KILL
+	size = 7
+
+/datum/nano_module/program/ship/helm
+	name = "Helm Control"
 	var/autopilot = 0
 	var/list/known_sectors = list()
 	var/dx		//desitnation
@@ -20,18 +24,17 @@ GLOBAL_LIST_EMPTY(overmap_helm_computers)
 	/// The mob currently operating the helm - The last one to click one of the movement buttons and be on the overmap screen. Set to `null` for autopilot or when the mob isn't in range.
 	var/mob/current_operator
 
-
-/obj/machinery/computer/ship/helm/Initialize()
-	. = ..()
+/datum/nano_module/program/ship/helm/New()
+	..()
 	LAZYADD(GLOB.overmap_helm_computers, src)
-	for(var/obj/overmap/visitable/sector as anything in GLOB.known_overmap_sectors)
+	for (var/obj/overmap/visitable/sector as anything in GLOB.known_overmap_sectors)
 		add_known_sector(sector)
 
-/obj/machinery/computer/ship/helm/Destroy()
+/datum/nano_module/program/ship/helm/Destroy()
 	. = ..()
 	LAZYREMOVE(GLOB.overmap_helm_computers, src)
 
-/obj/machinery/computer/ship/helm/proc/add_known_sector(obj/overmap/visitable/sector/S, notify = FALSE)
+/datum/nano_module/program/ship/helm/proc/add_known_sector(obj/overmap/visitable/sector/S, notify = FALSE)
 	var/datum/computer_file/data/waypoint/R = new()
 	R.fields["name"] = S.name
 	R.fields["x"] = S.x
@@ -39,24 +42,23 @@ GLOBAL_LIST_EMPTY(overmap_helm_computers)
 	known_sectors[S.name] = R
 
 	if (notify)
-		audible_message(SPAN_NOTICE("\The [src] pings with a new known sector: [S] at coordinates [S.x] by [S.y]."))
+		program.computer.visible_notification(SPAN_NOTICE("New known sector: [S] at coordinates [S.x] by [S.y]."))
 
-/obj/machinery/computer/ship/helm/Process()
+/datum/nano_module/program/ship/helm/Process()
 	..()
 
 	if (!linked)
 		if (current_operator)
-			to_chat(current_operator, SPAN_DANGER("\The [src]'s controls lock up with an error flashing across the screen: Connection to vessel lost!"))
 			set_operator(null, TRUE)
 		return
 
-	if (current_operator && (!Adjacent(current_operator) || CanUseTopic(current_operator) != STATUS_INTERACTIVE || !viewing_overmap(current_operator)))
+	if (current_operator && (CanUseTopic(current_operator, GLOB.default_state) != STATUS_INTERACTIVE || !viewing_overmap(current_operator)))
 		set_operator(null)
 
 	if (autopilot && dx && dy)
 		var/turf/T = locate(dx,dy,GLOB.using_map.overmap_z)
-		if(linked.loc == T)
-			if(!linked.is_moving())
+		if (linked.loc == T)
+			if (!linked.is_moving())
 				autopilot = 0
 			else
 				linked.decelerate(accellimit)
@@ -83,122 +85,113 @@ GLOBAL_LIST_EMPTY(overmap_helm_computers)
 
 		return
 
-/obj/machinery/computer/ship/helm/relaymove(mob/user, direction)
-	if(viewing_overmap(user) && linked)
-		if(prob(user.skill_fail_chance(SKILL_PILOT, 50, linked.skill_needed, factor = 1)))
-			direction = turn(direction,pick(90,-90))
-		linked.relaymove(user, direction, accellimit)
-		set_operator(user)
-		return 1
+/datum/nano_module/program/ship/helm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = GLOB.default_state)
+	var/list/data = host.initial_data()
 
-/obj/machinery/computer/ship/helm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
-	var/data = list()
+	var/turf/ship_sector_turf = get_turf(linked)
+	var/obj/overmap/visitable/sector/current_sector = locate() in ship_sector_turf
 
-	if(!linked)
-		display_reconnect_dialog(user, "helm")
+	var/mob/living/silicon/silicon = user
+	data["viewing_silicon"] = ismachinerestricted(silicon)
+
+	data["sector"] = current_sector ? current_sector.name : "Deep Space"
+	data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
+	data["landed"] = linked.get_landed_info()
+	data["s_x"] = linked.x
+	data["s_y"] = linked.y
+	data["dest"] = dy && dx
+	data["d_x"] = dx
+	data["d_y"] = dy
+	data["speedlimit"] = speedlimit ? speedlimit*1000 : "Halted"
+	data["accel"] = min(round(linked.get_acceleration()*1000, 0.01),accellimit*1000)
+	data["heading"] = linked.get_heading_angle() ? linked.get_heading_angle() : 0
+	data["autopilot"] = autopilot
+	data["manual_control"] = viewing_overmap(user)
+	data["canburn"] = linked.can_burn()
+	data["accellimit"] = accellimit*1000
+
+	var/speed = round(linked.get_speed()*1000, 0.01)
+	if (linked.get_speed() < SHIP_SPEED_SLOW)
+		speed = SPAN_GOOD("[speed]")
+	if (linked.get_speed() > SHIP_SPEED_FAST)
+		speed = SPAN_CLASS("average", "[speed]")
+	data["speed"] = speed
+
+	if (linked.get_speed())
+		data["ETAnext"] = "[round(linked.ETA()/10)] seconds"
 	else
-		var/turf/T = get_turf(linked)
-		var/obj/overmap/visitable/sector/current_sector = locate() in T
+		data["ETAnext"] = "N/A"
 
-		var/mob/living/silicon/silicon = user
-		data["viewing_silicon"] = ismachinerestricted(silicon)
+	var/list/locations = list()
+	for (var/key in known_sectors)
+		var/datum/computer_file/data/waypoint/known_waypoint = known_sectors[key]
+		var/list/rdata = list()
+		rdata["name"] = known_waypoint.fields["name"]
+		rdata["x"] = known_waypoint.fields["x"]
+		rdata["y"] = known_waypoint.fields["y"]
+		rdata["reference"] = "\ref[known_waypoint]"
+		locations.Add(list(rdata))
 
-		data["sector"] = current_sector ? current_sector.name : "Deep Space"
-		data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
-		data["landed"] = linked.get_landed_info()
-		data["s_x"] = linked.x
-		data["s_y"] = linked.y
-		data["dest"] = dy && dx
-		data["d_x"] = dx
-		data["d_y"] = dy
-		data["speedlimit"] = speedlimit ? speedlimit*1000 : "Halted"
-		data["accel"] = min(round(linked.get_acceleration()*1000, 0.01),accellimit*1000)
-		data["heading"] = linked.get_heading_angle() ? linked.get_heading_angle() : 0
-		data["autopilot"] = autopilot
-		data["manual_control"] = viewing_overmap(user)
-		data["canburn"] = linked.can_burn()
-		data["accellimit"] = accellimit*1000
+	data["locations"] = locations
 
-		var/speed = round(linked.get_speed()*1000, 0.01)
-		if(linked.get_speed() < SHIP_SPEED_SLOW)
-			speed = SPAN_GOOD("[speed]")
-		if(linked.get_speed() > SHIP_SPEED_FAST)
-			speed = SPAN_CLASS("average", "[speed]")
-		data["speed"] = speed
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if (!ui)
+		ui = new(user, src, ui_key, "helm.tmpl", "[linked.name] Helm Control", 565, 545)
+		ui.set_initial_data(data)
+		ui.open()
+		ui.set_auto_update(1)
 
-		if(linked.get_speed())
-			data["ETAnext"] = "[round(linked.ETA()/10)] seconds"
-		else
-			data["ETAnext"] = "N/A"
-
-		var/list/locations = list()
-		for (var/key in known_sectors)
-			var/datum/computer_file/data/waypoint/R = known_sectors[key]
-			var/list/rdata = list()
-			rdata["name"] = R.fields["name"]
-			rdata["x"] = R.fields["x"]
-			rdata["y"] = R.fields["y"]
-			rdata["reference"] = "\ref[R]"
-			locations.Add(list(rdata))
-
-		data["locations"] = locations
-
-		ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
-		if (!ui)
-			ui = new(user, src, ui_key, "helm.tmpl", "[linked.name] Helm Control", 565, 545)
-			ui.set_initial_data(data)
-			ui.open()
-			ui.set_auto_update(1)
-
-/obj/machinery/computer/ship/helm/OnTopic(mob/user, list/href_list, state)
-	if(..())
+/datum/nano_module/program/ship/helm/Topic(href, href_list)
+	if (..())
 		return TOPIC_HANDLED
 
-	if(!linked)
+	if (!linked)
 		return TOPIC_HANDLED
+
+	var/mob/user = usr
 
 	if (href_list["add"])
 		var/datum/computer_file/data/waypoint/R = new()
 		var/sec_name = input("Input naviation entry name", "New navigation entry", "Sector #[length(known_sectors)]") as text
-		if(!CanInteract(user,state))
+		if (CanUseTopic(current_operator, GLOB.default_state) != STATUS_INTERACTIVE)
 			return TOPIC_NOACTION
-		if(!sec_name)
+		if (!sec_name)
 			sec_name = "Sector #[length(known_sectors)]"
 		R.fields["name"] = sec_name
-		if(sec_name in known_sectors)
+		if (sec_name in known_sectors)
 			to_chat(user, SPAN_WARNING("Sector with that name already exists, please input a different name."))
 			return TOPIC_REFRESH
 		switch(href_list["add"])
-			if("current")
+			if ("current")
 				R.fields["x"] = linked.x
 				R.fields["y"] = linked.y
-			if("new")
+			if ("new")
 				var/newx = input("Input new entry x coordinate", "Coordinate input", linked.x) as num
-				if(!CanInteract(user,state))
+				if (CanUseTopic(current_operator, GLOB.default_state) != STATUS_INTERACTIVE)
 					return TOPIC_REFRESH
 				var/newy = input("Input new entry y coordinate", "Coordinate input", linked.y) as num
-				if(!CanInteract(user,state))
+				if (CanUseTopic(current_operator, GLOB.default_state) != STATUS_INTERACTIVE)
 					return TOPIC_NOACTION
 				R.fields["x"] = clamp(newx, 1, world.maxx)
 				R.fields["y"] = clamp(newy, 1, world.maxy)
 		known_sectors[sec_name] = R
 
 	if (href_list["remove"])
-		var/datum/computer_file/data/waypoint/R = locate(href_list["remove"])
-		if(R)
-			known_sectors.Remove(R.fields["name"])
-			qdel(R)
+		var/datum/computer_file/data/waypoint/waypoint_to_remove = locate(href_list["remove"])
+		if (waypoint_to_remove)
+			known_sectors.Remove(waypoint_to_remove.fields["name"])
+			qdel(waypoint_to_remove)
 
 	if (href_list["setx"])
 		var/newx = input("Input new destination x coordinate", "Coordinate input", dx) as num|null
-		if(!CanInteract(user,state))
+		if (CanUseTopic(current_operator, GLOB.default_state) != STATUS_INTERACTIVE)
 			return
 		if (newx)
 			dx = clamp(newx, 1, world.maxx)
 
 	if (href_list["sety"])
 		var/newy = input("Input new destination y coordinate", "Coordinate input", dy) as num|null
-		if(!CanInteract(user,state))
+		if (CanUseTopic(current_operator, GLOB.default_state) != STATUS_INTERACTIVE)
 			return
 		if (newy)
 			dy = clamp(newy, 1, world.maxy)
@@ -223,7 +216,7 @@ GLOBAL_LIST_EMPTY(overmap_helm_computers)
 
 	if (href_list["move"])
 		var/ndir = text2num(href_list["move"])
-		if(prob(user.skill_fail_chance(SKILL_PILOT, 50, linked.skill_needed, factor = 1)))
+		if (prob(user.skill_fail_chance(SKILL_PILOT, 50, linked.skill_needed, factor = 1)))
 			ndir = turn(ndir,pick(90,-90))
 		linked.relaymove(user, ndir, accellimit)
 
@@ -240,11 +233,7 @@ GLOBAL_LIST_EMPTY(overmap_helm_computers)
 	if (href_list["manual"])
 		viewing_overmap(user) ? unlook(user) : look(user)
 
-	add_fingerprint(user)
-	updateUsrDialog()
-
-
-/obj/machinery/computer/ship/helm/unlook(mob/user)
+/datum/nano_module/program/ship/helm/unlook(mob/user)
 	. = ..()
 	if (current_operator == user)
 		if (user.client)
@@ -252,12 +241,10 @@ GLOBAL_LIST_EMPTY(overmap_helm_computers)
 			user.client.pixel_y = 0
 		set_operator(null)
 
-
-/obj/machinery/computer/ship/helm/look(mob/user)
+/datum/nano_module/program/ship/helm/look(mob/user)
 	. = ..()
 	if (!autopilot)
 		set_operator(user)
-
 
 /**
  * Updates `current_operator` to the new user, or `null` and ejects the old operator from the overmap view - Only one person on a helm at a time!
@@ -265,7 +252,7 @@ GLOBAL_LIST_EMPTY(overmap_helm_computers)
  * `autopilot` will prevent ejection from the overmap (You want to monitor your autopilot right?) and by passed on to `display_operator_change_message()`.
  * Skips ghosts and observers to prevent accidental external influencing of flight.
  */
-/obj/machinery/computer/ship/helm/proc/set_operator(mob/user, silent, autopilot)
+/datum/nano_module/program/ship/helm/proc/set_operator(mob/user, silent, autopilot)
 	if (isobserver(user) || user == current_operator)
 		return
 
@@ -278,12 +265,11 @@ GLOBAL_LIST_EMPTY(overmap_helm_computers)
 	if (!silent)
 		display_operator_change_message(old_operator, current_operator, autopilot)
 
-
 /**
  * Displays visible messages indicating a change in operator.
  * `autopilot` will affect the displayed message.
  */
-/obj/machinery/computer/ship/helm/proc/display_operator_change_message(mob/old_operator, mob/new_operator, autopilot)
+/datum/nano_module/program/ship/helm/proc/display_operator_change_message(mob/old_operator, mob/new_operator, autopilot)
 	if (!old_operator)
 		new_operator.visible_message(
 			SPAN_NOTICE("\The [new_operator] takes \the [src]'s controls."),
@@ -305,23 +291,3 @@ GLOBAL_LIST_EMPTY(overmap_helm_computers)
 			SPAN_WARNING("\The [new_operator] takes \the [src]'s controls from \the [old_operator]."),
 			SPAN_DANGER("\The [new_operator] takes \the [src]'s controls from you!")
 		)
-
-
-/obj/machinery/computer/ship/helm/emag_act(remaining_charges, mob/user, emag_source)
-	if (user)
-		var/user_message = "You swipe \the [emag_source] against \the [src],"
-		if (emagged)
-			user_message = SPAN_WARNING("[user_message] achieving nothing new.")
-		else
-			user_message = SPAN_NOTICE("[user_message] frying the access locks.")
-		user.visible_message(
-			SPAN_ITALIC("\The [user] swipes \an [emag_source] against \the [src]."),
-			user_message,
-			range = 5
-		)
-	if (emagged)
-		return
-	emagged = TRUE
-	if (req_access)
-		req_access.Cut()
-	return 1

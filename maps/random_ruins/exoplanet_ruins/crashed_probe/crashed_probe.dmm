@@ -237,7 +237,7 @@
 /turf/simulated/floor/reinforced,
 /area/map_template/ecprobe/engineering)
 "mJ" = (
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 8
 	},
 /obj/floor_decal/corner/blue/border{
@@ -538,7 +538,7 @@
 /turf/template_noop,
 /area/map_template/ecprobe/solarsp)
 "Hu" = (
-/obj/machinery/computer/ship/helm{
+/obj/machinery/computer/modular/preset/helm{
 	dir = 8
 	},
 /obj/floor_decal/corner/blue/border{

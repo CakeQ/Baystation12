@@ -273,7 +273,7 @@
 /turf/simulated/floor,
 /area/scavver/gantry/down1)
 "fc" = (
-/obj/machinery/computer/modular/preset/helm{
+/obj/machinery/computer/modular/preset/engine_control{
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -1134,7 +1134,7 @@
 /turf/space,
 /area/scavver/yachtdown/thrusters)
 "sN" = (
-/obj/machinery/computer/modular/preset/helm,
+/obj/machinery/computer/modular/preset/engine_control,
 /obj/floor_decal/corner/blue/mono,
 /turf/simulated/floor/tiled/monotile,
 /area/scavver/calypso)
@@ -1986,7 +1986,7 @@
 /turf/simulated/floor,
 /area/scavver/gantry/down2)
 "Hn" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/modular/preset/helm,
 /obj/floor_decal/corner/blue/mono,
 /turf/simulated/floor/tiled/monotile,
 /area/scavver/calypso)

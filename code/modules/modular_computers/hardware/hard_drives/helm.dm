@@ -6,3 +6,5 @@
 /obj/item/stock_parts/computer/hard_drive/super/helm/install_default_programs()
 	..()
 	create_file(new/datum/computer_file/program/ship/engine_control(src))
+	create_file(new/datum/computer_file/program/ship/helm(src))
+	create_file(new/datum/computer_file/program/ship/sensors(src))

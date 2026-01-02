@@ -218,6 +218,7 @@
 
 /obj/overmap/radio/distress/Initialize()
 	..()
-	for(var/obj/machinery/computer/ship/helm/H in SSmachines.machinery)
-		H.visible_message(SPAN_WARNING("\the [H] pings uneasily as it detects a distress signal."))
-		playsound(H, 'sound/machines/sensors/newcontact.ogg', 50, 3, 3)
+	for (var/datum/nano_module/program/ship/helm/helm in GLOB.overmap_helm_computers)
+		var/datum/extension/interactive/ntos/computer = helm?.program.computer
+		computer.visible_notification(SPAN_WARNING("\the [computer] pings uneasily as it detects a distress signal."))
+		computer.audible_notification('sound/machines/sensors/newcontact.ogg')
